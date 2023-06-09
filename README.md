@@ -10,18 +10,16 @@
     Promoting Open Source Collaboration - Connect, Contribute, and Innovate Together on RepoAppIdea
     <br/>
     <br/>
-    <a href="https://github.com/ShaanCoding/ReadME-Generator"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/martinyis/RepoAppIdea"><strong>Explore the docs »</strong></a>
     <br/>
     <br/>
-    <a href="https://github.com/ShaanCoding/ReadME-Generator">View Demo</a>
+    <a href="https://github.com/martinyis/RepoAppIdea">View Demo</a>
     .
-    <a href="https://github.com/ShaanCoding/ReadME-Generator/issues">Report Bug</a>
+    <a href="https://github.com/martinyis/RepoAppIdea/issues">Report Bug</a>
     .
-    <a href="https://github.com/ShaanCoding/ReadME-Generator/issues">Request Feature</a>
+    <a href="https://github.com/martinyis/RepoAppIdea/issues">Request Feature</a>
   </p>
 </p>
-
-![Downloads](https://img.shields.io/github/downloads/ShaanCoding/ReadME-Generator/total) ![Contributors](https://img.shields.io/github/contributors/ShaanCoding/ReadME-Generator?color=dark-green) ![Stargazers](https://img.shields.io/github/stars/ShaanCoding/ReadME-Generator?style=social) ![Issues](https://img.shields.io/github/issues/ShaanCoding/ReadME-Generator) ![License](https://img.shields.io/github/license/ShaanCoding/ReadME-Generator)
 
 ## Table Of Contents
 
@@ -133,13 +131,11 @@ Follow the steps below to install and set up the project:
    git push origin main
    ```
 
-9. **Open a Pull Request**: Finally, open a pull request in the original [RepoAppIdea repository](https://github.com/martinyis/
+9. **Open a Pull Request**: Finally, open a pull request in the original [RepoAppIdea repository](https://github.com/martinyis/RepoAppIdea/pulls)
 
 ## Roadmap
 
 See the [open issues](https://github.com/martinyis/RepoAppIdea/issues) for a list of proposed features (and known issues).
-
-### Creating A Pull Request
 
 ## License
 
