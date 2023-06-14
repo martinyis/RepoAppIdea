@@ -35,7 +35,7 @@ const Cards = () => {
         {cardData.map((card, index) => (
           <div
             key={index}
-            className="flex flex-col items-center justify-center w-[25vw] min-w-[200px] h-[30vh] min-h-[273px] pt-10 pb-10 pl-1 pr-1 space-y-2 rounded-[36px] shadow-md"
+            className="flex flex-col items-center justify-center md:w-[25vw] sm:w-[50vw] xs:w-[60vw] min-w-[200px] h-[30vh] min-h-[273px] pt-10 pb-10 pl-1 pr-1 space-y-2 rounded-[36px] shadow-md"
             style={{
               fontFamily: "Roboto, sans-serif",
               background:
