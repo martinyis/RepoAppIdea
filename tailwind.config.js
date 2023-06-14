@@ -10,6 +10,10 @@ module.exports = {
       xl: "1280px",
       "2xl": "1440px",
     },
+    fontWeight: {
+      thin: 100,
+      // Other font weights...
+    },
     extend: {
       maxWidth: {
         xs: "220px",

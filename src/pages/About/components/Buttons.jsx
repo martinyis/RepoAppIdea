@@ -22,7 +22,7 @@ const Buttons = () => {
         rel="noopener noreferrer"
         className="w-[172px] h-[45px] sm:w-[258px] sm:h-[67px] font-normal text-[#DDE6ED] text-sm sm:text-xl rounded-[35px] border-2 border-[#DDE6ED]"
       >
-        <button className="w-full h-full">Get Started</button>
+        <button className="w-full h-full">Github Repo</button>
       </a>
     </div>
   );
