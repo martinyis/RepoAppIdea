@@ -4,7 +4,7 @@ import Main from "./components/Main";
 
 const About = () => {
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen px-6 max-w-[1440px] mx-auto">
       <NavBar />
       <Main />
       <Footer />

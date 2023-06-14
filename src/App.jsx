@@ -10,16 +10,16 @@ import UserBoard from "./pages/UserBoard/UserBoard";
 import { Routes, Route, Link } from "react-router-dom";
 function App() {
   return (
-    <div className="max-w-[1440px] mx-auto">
+    <div className="">
       <Routes>
         <Route path="/" element={<About />} />
         <Route path="/account" element={<Account />} />
         <Route path="/account/edit" element={<AccountEdit />} />
         <Route path="/create-project" element={<CreateProject />} />
-        <Route path="/login" element={<Login />} />
         <Route path="/projects" element={<Projects />} />
-        <Route path="/signup" element={<Signup />} />
         <Route path="/user-board" element={<UserBoard />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/login" element={<Login />} />
       </Routes>
     </div>
   );

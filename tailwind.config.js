@@ -19,6 +19,9 @@ module.exports = {
         xl: "1280px",
         "2xl": "1440px",
       },
+      colors: {
+        "custom-gray": "#F5F5F5",
+      },
     },
   },
   plugins: [],
