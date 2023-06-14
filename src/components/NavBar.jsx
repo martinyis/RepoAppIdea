@@ -1,21 +1,39 @@
 import LogSigUp from "./ui/LogSigUp";
 import logo from "./../assets/logos/repoapp-logo.png";
+import smallLogo from "./../assets/logos/repo-app-small.png";
 import { Link } from "react-router-dom";
 import { HiBars3 } from "react-icons/hi2";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { IoIosClose } from "react-icons/io";
+
 const NavBar = () => {
   const [nav, setNav] = useState(false);
+  const [isAuth, setIsAuth] = useState(false);
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
   const toggleNav = () => {
     setNav(!nav);
   };
 
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  const logoSrc = windowWidth < 768 ? smallLogo : logo;
+
   return (
-    <div className="mx-auto flex justify-between pt-[24px] items-center">
+    <div className="mx-auto flex justify-between pt-[24px] items-center mr-0 ml-0">
       <Link to="/">
-        <div className="w-1/2 md:w-[100%]">
-          <img src={logo} alt="Logo" />
+        <div className="">
+          <img src={logoSrc} alt="Logo" className="" />
         </div>
       </Link>
       <ul className="flex gap-x-[52px] text-white text-xl hidden md:flex">
@@ -29,7 +47,7 @@ const NavBar = () => {
           <Link to="/user-board">Developers</Link>
         </li>
       </ul>
-      <LogSigUp />
+      <LogSigUp isAuth={isAuth} />
       <ul
         className={`absolute top-0 left-1/2 transform -translate-x-1/2 transition-all duration-300 text-white flex flex-col gap-y-[75px] bg-slate-400 w-[100%] items-center h-screen ${
           nav ? "translate-y-0" : "-translate-y-full"

@@ -1,10 +1,13 @@
+import Footer from "../../components/Footer";
 import NavBar from "../../components/NavBar";
+import Main from "./components/Main";
 
 const About = () => {
   return (
-    <div>
+    <div className="flex flex-col min-h-screen">
       <NavBar />
-      <h1>About</h1>
+      <Main />
+      <Footer />
     </div>
   );
 };
