@@ -8,7 +8,7 @@ import { IoIosClose } from "react-icons/io";
 
 const NavBar = () => {
   const [nav, setNav] = useState(false);
-  const [isAuth, setIsAuth] = useState(false);
+  const [isAuth, setIsAuth] = useState(true);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
   const toggleNav = () => {
