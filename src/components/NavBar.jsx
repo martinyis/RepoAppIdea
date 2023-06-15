@@ -37,23 +37,24 @@ const NavBar = () => {
         </div>
       </Link>
       <ul className="flex gap-x-[52px] text-white text-xl hidden md:flex">
-        <li>
+        <li className="hover:text-[#596c81]">
           <Link to="/">About</Link>
         </li>
-        <li>
+        <li className="hover:text-[#596c81]">
           <Link to="/projects">Projects</Link>
         </li>
-        <li>
+        <li className="hover:text-[#596c81]">
           <Link to="/user-board">Developers</Link>
         </li>
       </ul>
+
       <LogSigUp isAuth={isAuth} />
       <ul
-        className={`absolute top-0 left-1/2 transform -translate-x-1/2 transition-all duration-300 text-white flex flex-col gap-y-[75px] bg-slate-400 w-[100%] items-center h-screen ${
+        className={`absolute top-0 left-1/2 transform -translate-x-1/2 transition-all duration-300 text-white flex flex-col text-[25px] gap-y-[75px] bg-[#526D82] w-[100%] items-center h-screen ${
           nav ? "translate-y-0" : "-translate-y-full"
         }`}
       >
-        <li className="pt-[24px]">
+        <li className="pt-[100px]">
           <Link to="/">About</Link>
         </li>
         <li>

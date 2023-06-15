@@ -1,13 +1,21 @@
 import { Link } from "react-router-dom";
 import star from "./../../assets/icons/star.png";
+import fillStar from "./../../assets/icons/fill-star.png";
 import devlook from "./../../assets/icons/dev-look.png";
 import { Scrollbars } from "react-custom-scrollbars";
 import { useMediaQuery } from "react-responsive";
 import "./ProjectCard.css"; // Import the CSS file
+import { useState } from "react";
+
 const ProjectCard = () => {
   const isMobile = useMediaQuery({ maxWidth: "365px" });
+  const [stared, setStared] = useState(false);
+  const newStar = stared ? fillStar : star;
+  const handleStar = () => {
+    setStared(!stared);
+  };
   return (
-    <div className="bg-blue-200 bg-opacity-30 rounded-28 rounded-[28px]">
+    <div className="bg-blue-200 bg-opacity-30 rounded-28 rounded-[28px] hover:scale-105 transition-all duration-300 ease-in-out cursor-pointer">
       <div
         className={`px-6 ${
           isMobile ? "flex flex-col" : "flex justify-between"
@@ -15,17 +23,22 @@ const ProjectCard = () => {
       >
         <h3 className="text-2xl text-white font-bold">RepoAppIdea</h3>
         <div className="flex gap-x-2 items-center justify-center">
-          <img className="mt-[-5px] cursor-pointer" src={star} alt="" />
+          <img
+            onClick={handleStar}
+            className="mt-[-3px] cursor-pointer"
+            src={newStar}
+            alt=""
+          />
           <p className="text-[#DDE6ED] text-2xl">54</p>
         </div>
       </div>
-      <p className=" px-6 text-[#DDE6ED] text-xs pb-[6px]">
+      <p className="px-6 text-[#DDE6ED] text-xs pb-[6px]">
         Created By:{" "}
         <span className="font-bold text-white">
           <Link to="/account">martinyis</Link>
         </span>
       </p>
-      <p className=" px-6 text-[#F5F5F5] font-base max-w-[450px] pb-[16px]">
+      <p className="px-6 text-[#F5F5F5] font-base max-w-[450px] pb-[16px]">
         Empowering Open Source Collaboration - Connect with Like-minded
         Developers, Contribute to Inspiring Projects, and Innovate Together on
         RepoAppIdea Empowering Open Source Collaboration - Connect with
@@ -47,7 +60,7 @@ const ProjectCard = () => {
           </div>
         </div>
       </div>
-      <div className="h-[53px] bg-[#DDE6ED] ounded-t-lg rounded-b-[30px] flex items-center justify-center">
+      <div className="h-[53px] bg-[#DDE6ED] rounded-t-lg rounded-b-[30px] flex items-center justify-center">
         <div className="scrollbar flex gap-x-4 max-w-[634px] overflow-x-auto">
           <div className="w-[100px] h-[19px] rounded-[30px] bg-[#1D267D] flex items-center justify-center text-[10px] ">
             JavaScript

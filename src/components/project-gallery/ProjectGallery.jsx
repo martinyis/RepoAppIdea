@@ -12,7 +12,7 @@ const ProjectGallery = () => {
       <div className="flex justify-end">
         {isAuth ? (
           <Link to="/create-project">
-            <button className="font-thin text-2xl leading-7 text-white border border-solid border-blue-200 rounded-[35px] w-64 h-16 mb-[29px]">
+            <button className="font-thin text-2xl leading-7 text-white border border-solid border-blue-200 rounded-[35px] w-64 h-16 mb-[29px] hover:bg-blue-200 hover:text-blue-500 hover:border-blue-500 transition-colors duration-300">
               Add Project
             </button>
           </Link>
@@ -20,7 +20,7 @@ const ProjectGallery = () => {
           ""
         )}
       </div>
-      <div className="grid md:grid-cols-2 grid-cols-1 gap-4 gap-y-[56px]">
+      <div className="grid md:grid-cols-2 grid-cols-1 gap-8 gap-y-[56px]">
         <ProjectCard />
         <ProjectCard />
         <ProjectCard />
