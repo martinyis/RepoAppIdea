@@ -9,6 +9,7 @@ module.exports = {
       lg: "1024px",
       xl: "1280px",
       "2xl": "1440px",
+      custom: "348px",
     },
     fontWeight: {
       thin: 100,

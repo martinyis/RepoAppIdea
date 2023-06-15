@@ -38,7 +38,7 @@ const Login = () => {
             placeholder="Password"
           />
           <button className="h-10 bg-gray-800 rounded-md font-semibold text-sm text-white w-[100%]">
-            Login
+            Sign up
           </button>
         </form>
         <p className="text-sm text-black font-open-sans text-center mb-[58px] font-bold">
