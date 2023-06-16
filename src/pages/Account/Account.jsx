@@ -33,8 +33,6 @@ const Account = () => {
     }
   }, [data, id]);
 
-  console.log(isEditable);
-
   return (
     <div className="flex flex-col min-h-screen px-6 max-w-[1440px] mx-auto">
       <NavBar />
@@ -43,7 +41,7 @@ const Account = () => {
           <Spinner color="#ffffff" size={25} loading={true} />
         </div>
       ) : data._id === id ? (
-        <Main data={data} isEditable={isEditable} />
+        <Main data={data} isEditable={isEditable} id={id} />
       ) : (
         <p className="text-white text-center mt-6">
           Failed to load. Please try again later.

@@ -1,9 +1,32 @@
 import { Link } from "react-router-dom";
 import ProjectCard from "../../components/project-gallery/ProjectCard";
-
+import { useState, useEffect } from "react";
+import axios from "./../../axios.js";
 const Main = (props) => {
-  const { data, isEditable } = props;
-  console.log(data);
+  const { data, isEditable, id } = props;
+
+  const [projects, setProjetcs] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(`/api/v1/projects/getAll/${id}`);
+        setProjetcs(response.data.data.projects);
+        setIsLoading(false);
+        console.log(response.data.data.projects);
+      } catch (error) {
+        console.log(error);
+        setIsLoading(false);
+      }
+    };
+    fetchData();
+  }, []);
+
+  useEffect(() => {
+    console.log(projects);
+  }, []);
+
   return (
     <div className="mt-[83px] max-w-[1440px] mb-[233px] px-8">
       <h2 className="text-center text-[#DDE6ED] font-bold text-[40px] mx-auto mb-[139px]">
@@ -59,10 +82,11 @@ const Main = (props) => {
           )}
         </div>
         <div className="flex flex-col gap-y-[58px] lg:mr-[120px] mr-0">
-          <ProjectCard />
-          <ProjectCard />
-          <ProjectCard />
-          <ProjectCard />
+          {projects.map((el) => (
+            <a href={el.githubLink}>
+              <ProjectCard key={el.id} data={el} />{" "}
+            </a>
+          ))}
         </div>
       </div>
     </div>
