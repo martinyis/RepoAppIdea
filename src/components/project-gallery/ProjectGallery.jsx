@@ -1,9 +1,11 @@
 import { Link } from "react-router-dom";
 import ProjectCard from "./ProjectCard";
 import { useState } from "react";
+import { useSelector } from "react-redux";
+import { selectIsAuth } from "../../redux/slices/auth";
 
 const ProjectGallery = () => {
-  const [isAuth, setIsAuth] = useState(true);
+  const isAuth = useSelector(selectIsAuth);
   return (
     <div className="flex-col items-center pb-[265px] pt-[119px]">
       <h2 className="text-center text-[#DDE6ED] font-bold text-[40px] mx-auto mb-[31px]">

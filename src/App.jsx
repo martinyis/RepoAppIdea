@@ -10,11 +10,19 @@ import { Routes, Route, Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { fetchMe } from "./redux/slices/auth";
 import { useEffect } from "react";
+
 function App() {
   const dispatch = useDispatch();
+
+  const fetchData = async () => {
+    const data = await dispatch(fetchMe());
+    console.log(data);
+  };
+
   useEffect(() => {
-    dispatch(fetchMe());
+    fetchData();
   }, []);
+
   return (
     <div className="">
       <Routes>
@@ -30,4 +38,5 @@ function App() {
     </div>
   );
 }
+
 export default App;
