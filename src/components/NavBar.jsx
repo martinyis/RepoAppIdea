@@ -31,13 +31,13 @@ const NavBar = () => {
   const logoSrc = windowWidth < 768 ? smallLogo : logo;
 
   return (
-    <div className="mx-auto flex justify-between pt-[24px] items-center mr-0 ml-0">
+    <div className="mx-auto flex justify-between pt-[24px] items-center mr-0 ml-4">
       <Link to="/">
         <div className="">
           <img src={logoSrc} alt="Logo" className="" />
         </div>
       </Link>
-      <ul className="flex gap-x-[52px] text-white text-xl hidden md:flex">
+      <ul className="flex gap-x-[52px] ml-14 text-white text-xl hidden md:flex">
         <li className="hover:text-[#596c81]">
           <Link to="/">About</Link>
         </li>
