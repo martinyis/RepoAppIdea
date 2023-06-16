@@ -6,9 +6,15 @@ import Login from "./pages/Login/Login";
 import Projects from "./pages/Projects/Projects";
 import Signup from "./pages/Signup/Signup";
 import UserBoard from "./pages/UserBoard/UserBoard";
-
 import { Routes, Route, Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { fetchMe } from "./redux/slices/auth";
+import { useEffect } from "react";
 function App() {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchMe());
+  }, []);
   return (
     <div className="">
       <Routes>

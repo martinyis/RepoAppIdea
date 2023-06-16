@@ -5,10 +5,11 @@ import { Link } from "react-router-dom";
 import { HiBars3 } from "react-icons/hi2";
 import { useState, useEffect } from "react";
 import { IoIosClose } from "react-icons/io";
-
+import { useSelector } from "react-redux";
+import { selectIsAuth } from "../redux/slices/auth";
 const NavBar = () => {
   const [nav, setNav] = useState(false);
-  const [isAuth, setIsAuth] = useState(true);
+  const isAuth = useSelector(selectIsAuth);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
   const toggleNav = () => {
