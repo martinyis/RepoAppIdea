@@ -26,16 +26,16 @@ const Cards = () => {
   return (
     <div>
       <h1
-        className="text-3xl font-bold text-center text-white pt-24 pb-24"
+        className="pt-24 pb-24 text-3xl font-bold text-center text-white"
         style={{ fontFamily: "Roboto, sans-serif" }}
       >
         Connect & Create
       </h1>
-      <div className="flex md:flex-row xs:flex-col items-center justify-center max-w-[1440px] px-4 md:space-x-20 md:space-y-0 xs:space-y-10">
+      <div className="flex md:flex-row xs:flex-col items-center justify-center max-w-[1440px] px-4 md:space-x-20 md:space-y-0 xs:space-y-10 ">
         {cardData.map((card, index) => (
           <div
             key={index}
-            className="flex flex-col items-center justify-center md:w-[25vw] sm:w-[50vw] xs:w-[60vw] min-w-[200px] h-[30vh] min-h-[273px] pt-10 pb-10 pl-1 pr-1 space-y-2 rounded-[36px] shadow-md"
+            className="flex flex-col items-center justify-center md:w-[25vw] sm:w-full  min-w-[200px] h-[30vh] min-h-[273px] pt-10 pb-10 pl-1 pr-1 space-y-2 rounded-[36px] shadow-md"
             style={{
               fontFamily: "Roboto, sans-serif",
               background:
