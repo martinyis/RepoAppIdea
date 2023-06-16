@@ -16,7 +16,6 @@ function App() {
 
   const fetchData = async () => {
     const data = await dispatch(fetchMe());
-    console.log(data);
   };
 
   useEffect(() => {
@@ -27,7 +26,7 @@ function App() {
     <div className="">
       <Routes>
         <Route path="/" element={<About />} />
-        <Route path="/account" element={<Account />} />
+        <Route path="/account/:id" element={<Account />} />
         <Route path="/account/edit" element={<AccountEdit />} />
         <Route path="/create-project" element={<CreateProject />} />
         <Route path="/projects" element={<Projects />} />
