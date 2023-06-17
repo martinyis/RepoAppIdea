@@ -1,34 +1,34 @@
-import LogSigUp from "./ui/LogSigUp"
-import logo from "./../assets/logos/repoapp-logo.png"
-import smallLogo from "./../assets/logos/repo-app-small.png"
-import {Link} from "react-router-dom"
-import {HiBars3} from "react-icons/hi2"
-import {useState, useEffect} from "react"
-import {IoIosClose} from "react-icons/io"
-import {useSelector} from "react-redux"
-import {selectIsAuth} from "../redux/slices/auth"
+import LogSigUp from "./ui/LogSigUp";
+import logo from "./../assets/logos/repoapp-logo.png";
+import smallLogo from "./../assets/logos/repo-app-small.png";
+import { Link } from "react-router-dom";
+import { HiBars3 } from "react-icons/hi2";
+import { useState, useEffect } from "react";
+import { IoIosClose } from "react-icons/io";
+import { useSelector } from "react-redux";
+import { selectIsAuth } from "../redux/slices/auth";
 const NavBar = () => {
-  const [nav, setNav] = useState(false)
-  const isAuth = useSelector(selectIsAuth)
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth)
+  const [nav, setNav] = useState(false);
+  const isAuth = useSelector(selectIsAuth);
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
   const toggleNav = () => {
-    setNav(!nav)
-  }
+    setNav(!nav);
+  };
 
   useEffect(() => {
     const handleResize = () => {
-      setWindowWidth(window.innerWidth)
-    }
+      setWindowWidth(window.innerWidth);
+    };
 
-    window.addEventListener("resize", handleResize)
+    window.addEventListener("resize", handleResize);
 
     return () => {
-      window.removeEventListener("resize", handleResize)
-    }
-  }, [])
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
-  const logoSrc = windowWidth < 768 ? smallLogo : logo
+  const logoSrc = windowWidth < 768 ? smallLogo : logo;
 
   return (
     <div className="mx-auto flex justify-between pt-[24px] items-center mr-0 ml-0">
@@ -37,7 +37,6 @@ const NavBar = () => {
           <img src={logoSrc} alt="Logo" className="" />
         </div>
       </Link>
-
       <ul className="ml-[100px] gap-x-[52px] text-white text-xl hidden md:flex">
         <li className="hover:text-[#596c81]">
           <Link to="/">About</Link>
@@ -54,7 +53,8 @@ const NavBar = () => {
       <ul
         className={`absolute top-0 left-1/2 transform -translate-x-1/2 transition-all duration-300 text-white flex flex-col text-[25px] gap-y-[75px] bg-[#526D82] w-[100%] items-center h-screen ${
           nav ? "translate-y-0" : "-translate-y-full"
-        }`}>
+        }`}
+      >
         <li className="pt-[100px]">
           <Link to="/">About</Link>
         </li>
@@ -81,7 +81,7 @@ const NavBar = () => {
         />
       )}
     </div>
-  )
-}
+  );
+};
 
-export default NavBar
+export default NavBar;
