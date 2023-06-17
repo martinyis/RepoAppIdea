@@ -1,8 +1,14 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import NavBar from "../../components/NavBar";
 import { Link } from "react-router-dom";
 import "./Login.css";
+import { useDispatch, useSelector } from "react-redux";
+import { selectIsAuth, selectError, fetchLogin } from "../../redux/slices/auth";
+import { Navigate } from "react-router-dom";
 const Login = () => {
+  const isAuth = useSelector(selectIsAuth);
+  const err = useSelector(selectError);
+  const dispatch = useDispatch();
   useEffect(() => {
     document.body.style.backgroundColor = "#DDE6ED";
     // Clean up the effect
@@ -10,6 +16,32 @@ const Login = () => {
       document.body.style.backgroundColor = "";
     };
   }, []);
+
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+  });
+
+  const handleInputChange = (event) => {
+    setFormData({
+      ...formData,
+      [event.target.name]: event.target.value,
+    });
+  };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    const data = await dispatch(fetchLogin(formData));
+    console.log(data);
+    if (data.payload !== undefined) {
+      localStorage.setItem("id", data.payload.data.user._id);
+      localStorage.setItem("token", `Bearer ${data.payload.token}`);
+    }
+  };
+
+  if (isAuth) {
+    return <Navigate to="/" />;
+  }
 
   return (
     <div className="">
@@ -21,28 +53,40 @@ const Login = () => {
         <form
           className="flex flex-col gap-4 items-center justify-center mx-auto text-center max-w-[442px] px-[30px] mb-[24px]"
           action=""
+          onSubmit={handleSubmit}
         >
           <input
             className="border h-10 pl-[12px] border-solid border-gray-300 rounded-md w-full font-openSans font-normal font-400 text-sm leading-5 text-gray-400"
             type="text"
+            name="email"
+            value={formData.email}
             placeholder="Email"
+            onChange={handleInputChange}
           />
           <input
             className="border h-10 pl-[12px] border-solid border-gray-300 rounded-md w-full font-openSans font-normal font-400 text-sm leading-5 text-gray-400"
             type="text"
+            name="password"
+            value={formData.password}
             placeholder="Password"
+            onChange={handleInputChange}
           />
 
           <button className="h-10 bg-gray-800 rounded-md font-semibold text-sm text-white w-[100%]">
             Login
           </button>
         </form>
-        <p className="text-sm text-black font-open-sans text-center mb-[58px] font-bold">
-          Don't have an account?{" "}
-          <span className="font-bold boldFont">
-            <Link to="/signup">Create an account</Link>
-          </span>
-        </p>
+        <div className="mb-[58px] ">
+          <p className="text-sm text-black font-open-sans text-center mb-[58px] font-bold">
+            Don't have an account?{" "}
+            <span className="font-bold boldFont">
+              <Link to="/signup">Create an account</Link>
+            </span>
+          </p>
+          <p className="text-[#FF0000] max-w-[442px] text-left px-[51px]">
+            {err}
+          </p>
+        </div>
       </div>
     </div>
   );
