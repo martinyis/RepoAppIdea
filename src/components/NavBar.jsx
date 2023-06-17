@@ -37,6 +37,7 @@ const NavBar = () => {
           <img src={logoSrc} alt="Logo" className="" />
         </div>
       </Link>
+
       <ul className="ml-[100px] gap-x-[52px] text-white text-xl hidden md:flex">
         <li className="hover:text-[#596c81]">
           <Link to="/">About</Link>
