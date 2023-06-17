@@ -13,10 +13,8 @@ import validator from "validator";
 
 const Signup = () => {
   const isAuth = useSelector(selectIsAuth);
-  const loading = useSelector(selectLoading);
   const err = useSelector(selectError);
   const dispatch = useDispatch();
-  const [error, setError] = useState("");
   const [formData, setFormData] = useState({
     username: "",
     email: "",
@@ -50,6 +48,7 @@ const Signup = () => {
     console.log(data);
     if (data.payload !== undefined) {
       localStorage.setItem("id", data.payload.data.user._id);
+      localStorage.setItem("token", `Bearer ${data.payload.token}`);
     }
   };
 

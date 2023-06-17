@@ -32,6 +32,26 @@ export const fetchMe = createAsyncThunk("/auth/fetchMe", async () => {
   }
 });
 
+export const fetchLogin = createAsyncThunk(
+  "/auth/fetchLogin",
+  async (formData) => {
+    try {
+      const response = await axios.post("/api/v1/users/login", formData);
+      return response.data;
+    } catch (error) {
+      if (
+        error.response &&
+        error.response.data &&
+        error.response.data.message
+      ) {
+        throw error.response.data.message;
+      } else {
+        throw error;
+      }
+    }
+  }
+);
+
 const authSlice = createSlice({
   name: "auth",
   initialState: {
@@ -62,6 +82,18 @@ const authSlice = createSlice({
         state.loading = true;
       })
       .addCase(fetchMe.rejected, (state, action) => {
+        state.isAuth = false;
+        state.error = action.error.message;
+        state.payload = action.payload;
+        state.loading = false;
+      })
+      .addCase(fetchLogin.fulfilled, (state, action) => {
+        state.isAuth = true;
+        state.error = null;
+        state.payload = action.payload;
+        state.loading = true;
+      })
+      .addCase(fetchLogin.rejected, (state, action) => {
         state.isAuth = false;
         state.error = action.error.message;
         state.payload = action.payload;

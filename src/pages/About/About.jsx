@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import Footer from "../../components/Footer";
 import NavBar from "../../components/NavBar";
 import Main from "./components/Main";
