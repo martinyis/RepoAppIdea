@@ -1,11 +1,16 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-
+import { selectIsAuth } from "../../../redux/slices/auth";
+import { useSelector } from "react-redux";
 const Buttons = () => {
   const navigate = useNavigate();
-
+  const isAuth = useSelector(selectIsAuth);
   const handleFirstButtonClick = () => {
-    navigate("/login");
+    if (isAuth) {
+      navigate("/projects");
+    } else {
+      navigate("/signup");
+    }
   };
 
   return (
