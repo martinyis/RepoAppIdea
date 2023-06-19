@@ -1,7 +1,7 @@
 import { useState } from "react";
 import DeleteIcon from "./../../assets/icons/delete-icon.png";
 import EditIcon from "./../../assets/icons/edit-icon.png";
-import axios from "./../../axios.js";
+import axios from "../../axios.js";
 const EditDelete = (props) => {
   const { user, project } = props;
   const id = localStorage.getItem("id");

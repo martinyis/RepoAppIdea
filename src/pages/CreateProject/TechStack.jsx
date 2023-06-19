@@ -35,12 +35,12 @@ const TechStack = (props) => {
           placeholder={variant == 1 ? "Tech Stack" : "Developers Needed"}
           value={lastInputValue}
           onChange={handleLastInputChange}
-          className="h-[36px] w-[80%] flex items-center pl-[25px] border border-gray-200 rounded-[68px] text-[14px] bg-blue-200 bg-opacity-50 bg-transparent"
+          className="h-[36px] w-[80%] flex items-center pl-[25px] border border-gray-200 rounded-[68px] text-[14px] bg-blue-200 bg-opacity-50 bg-transparent outline-none focus:ring-0 focus:border-blue-200"
         />
         <button
           type="submit"
           onClick={handleStackSubmit}
-          className="h-[36px] w-[20%] flex items-center justify-center border border-gray-200 rounded-[68px] text-[14px] bg-blue-200 bg-opacity-50 bg-transparent"
+          className="h-[36px] w-[20%] flex items-center justify-center border border-gray-200 rounded-[68px] text-[14px] bg-blue-200 bg-opacity-50 bg-transparent hover:bg-[#5C469C]"
         >
           Add
         </button>

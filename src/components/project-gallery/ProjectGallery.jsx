@@ -37,7 +37,7 @@ const ProjectGallery = () => {
       <div className="flex justify-end">
         {isAuth ? (
           <Link to="/create-project">
-            <button className="font-thin text-2xl leading-7 text-white border border-solid border-blue-200 rounded-[35px] w-64 h-16 mb-[29px] hover:bg-blue-200 hover:text-blue-500 hover:border-blue-500 transition-colors duration-300">
+            <button className="font-thin text-2xl leading-7 text-white border border-solid border-blue-200 rounded-[35px] w-64 h-16 mb-[29px] hover:bg-[#dfe6ed] hover:text-[#27374d] hover:border-[#dfe6ed] transition-colors duration-300">
               Add Project
             </button>
           </Link>
@@ -52,7 +52,9 @@ const ProjectGallery = () => {
       ) : (
         <>
           {data.length === 0 ? (
-            <p>No projects found.</p> // Alternative content when data is empty
+            <p className="text-center mt-[100px] text-3xl text-bold bg-[#5C469C] rounded-[26px] py-9">
+              OOPS, IT SEEMS LIKE THERE ARE NO PROJECTS YET
+            </p> // Alternative content when data is empty
           ) : (
             <div className="grid md:grid-cols-2 grid-cols-1 gap-8 gap-y-[56px]">
               {data.map((el) => (

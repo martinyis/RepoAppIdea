@@ -6,7 +6,7 @@ import { Scrollbars } from "react-custom-scrollbars";
 import { useMediaQuery } from "react-responsive";
 import "./ProjectCard.css"; // Import the CSS file
 import { useState } from "react";
-import EditDelete from "./EditDelte";
+import EditDelete from "./EditDelete";
 const ProjectCard = (props) => {
   const { data } = props;
   const isMobile = useMediaQuery({ maxWidth: "365px" });

@@ -62,7 +62,7 @@ const CreateForm = () => {
           placeholder="Full Name"
           value={formValues.fullname}
           onChange={handleInputChange}
-          className="md:w-[60%] w-[100%] sm:w-[80%] h-[36px] flex items-center pl-[25px] border border-gray-200 rounded-[68px] text-[14px] bg-blue-200 bg-opacity-50 bg-transparent mx-auto"
+          className="outline-none focus:ring-0 focus:border-blue-200 md:w-[60%] w-[100%] sm:w-[80%] h-[36px] flex items-center pl-[25px] border border-gray-200 rounded-[68px] text-[14px] bg-blue-200 bg-opacity-50 bg-transparent mx-auto"
         />
         <input
           type="text"
@@ -70,7 +70,7 @@ const CreateForm = () => {
           placeholder="Position"
           value={formValues.position}
           onChange={handleInputChange}
-          className="md:w-[60%] w-[100%] sm:w-[80%] h-[36px] flex items-center pl-[25px] border border-gray-200 rounded-[68px] text-[14px] bg-blue-200 bg-opacity-50 bg-transparent mx-auto"
+          className="outline-none focus:ring-0 focus:border-blue-200 md:w-[60%] w-[100%] sm:w-[80%] h-[36px] flex items-center pl-[25px] border border-gray-200 rounded-[68px] text-[14px] bg-blue-200 bg-opacity-50 bg-transparent mx-auto"
         />
         <input
           type="text"
@@ -78,7 +78,7 @@ const CreateForm = () => {
           placeholder="Avatar Url"
           value={formValues.avatarUrl}
           onChange={handleInputChange}
-          className="md:w-[60%] w-[100%] sm:w-[80%] h-[36px] flex items-center pl-[25px] border border-gray-200 rounded-[68px] text-[14px] bg-blue-200 bg-opacity-50 bg-transparent mx-auto"
+          className="outline-none focus:ring-0 focus:border-blue-200 md:w-[60%] w-[100%] sm:w-[80%] h-[36px] flex items-center pl-[25px] border border-gray-200 rounded-[68px] text-[14px] bg-blue-200 bg-opacity-50 bg-transparent mx-auto"
         />
         <input
           type="text"
@@ -86,7 +86,7 @@ const CreateForm = () => {
           placeholder="LinkedIn Link"
           value={formValues.linkedinLink}
           onChange={handleInputChange}
-          className="md:w-[60%] w-[100%] sm:w-[80%] h-[36px] flex items-center pl-[25px] border border-gray-200 rounded-[68px] text-[14px] bg-blue-200 bg-opacity-50 bg-transparent mx-auto"
+          className="outline-none focus:ring-0 focus:border-blue-200 md:w-[60%] w-[100%] sm:w-[80%] h-[36px] flex items-center pl-[25px] border border-gray-200 rounded-[68px] text-[14px] bg-blue-200 bg-opacity-50 bg-transparent mx-auto"
         />
         <input
           type="text"
@@ -94,7 +94,7 @@ const CreateForm = () => {
           placeholder="Github Link"
           value={formValues.githubLink}
           onChange={handleInputChange}
-          className="md:w-[60%] w-[100%] sm:w-[80%] h-[36px] flex items-center pl-[25px] border border-gray-200 rounded-[68px] text-[14px] bg-blue-200 bg-opacity-50 bg-transparent mx-auto"
+          className="outline-none focus:ring-0 focus:border-blue-200 md:w-[60%] w-[100%] sm:w-[80%] h-[36px] flex items-center pl-[25px] border border-gray-200 rounded-[68px] text-[14px] bg-blue-200 bg-opacity-50 bg-transparent mx-auto"
         />
         <textarea
           type="text"
@@ -102,7 +102,7 @@ const CreateForm = () => {
           placeholder="Description"
           value={formValues.description}
           onChange={handleInputChange}
-          className="resize-none md:w-[60%] w-[100%] sm:w-[80%] h-[150px] pl-[25px] pt-[15px] border border-gray-200 rounded-[30px] text-[14px] bg-blue-200 bg-opacity-50 bg-transparent mx-auto"
+          className="outline-none focus:ring-0 focus:border-blue-200 resize-none md:w-[60%] w-[100%] sm:w-[80%] h-[150px] pl-[25px] pt-[15px] border border-gray-200 rounded-[30px] text-[14px] bg-blue-200 bg-opacity-50 bg-transparent mx-auto"
         />
         <div className="md:w-[60%] w-[100%] sm:w-[80%] h-[36px] mx-auto flex items-center justify-center gap-4">
           <button
