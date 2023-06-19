@@ -21,7 +21,6 @@ const ProjectGallery = () => {
         const response = await axios.get("/api/v1/projects/getAll");
         setData(response.data.data.projects);
         setIsLoading(false);
-        console.log(response.data);
       } catch (error) {
         console.log(error);
         setIsLoading(false);
@@ -57,9 +56,7 @@ const ProjectGallery = () => {
           ) : (
             <div className="grid md:grid-cols-2 grid-cols-1 gap-8 gap-y-[56px]">
               {data.map((el) => (
-                <a href={el.githubLink}>
-                  <ProjectCard key={el.id} data={el} />{" "}
-                </a>
+                <ProjectCard key={el.id} data={el} />
               ))}
             </div>
           )}

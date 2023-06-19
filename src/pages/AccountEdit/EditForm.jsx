@@ -1,15 +1,17 @@
-import React, { useState } from "react";
-import TechItem from "./TechItem";
-import TechStack from "./TechStack";
+import React, { useEffect, useState } from "react";
 import axios from "./../../axios.js";
+import { useDispatch } from "react-redux";
+import { fetchUserById } from "../../redux/slices/user.js";
 const CreateForm = () => {
+  const dispatch = useDispatch();
   const [error, setError] = useState("");
   const [formValues, setFormValues] = useState({
-    name: "",
+    fullname: "",
+    position: "",
+    avatarUrl: "",
     githubLink: "",
+    linkedinLink: "",
     description: "",
-    techStack: [],
-    positionsNeeded: [],
   });
 
   const handleInputChange = function (e) {
@@ -19,37 +21,32 @@ const CreateForm = () => {
       [name]: value,
     }));
   };
-
-  const handleSubmit = function (e) {
-    e.preventDefault();
-    axios
-      .post("/api/v1/projects/create", formValues)
-      .then((res) => {
-        window.location = "/projects";
-      })
-      .catch((err) => {
-        setError(err.response.data.message);
-      });
-  };
   const handleRelocate = (e) => {
     e.preventDefault();
     window.history.back();
   };
 
-  const getStack = (stack, variant) => {
-    if (variant == 1) {
-      setFormValues((prevFormValues) => ({
-        ...prevFormValues,
-        techStack: stack,
-      }));
-    } else {
-      setFormValues((prevFormValues) => ({
-        ...prevFormValues,
-        positionsNeeded: stack,
-      }));
-    }
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    axios
+      .patch("/api/v1/users/edit", formValues)
+      .then((res) => {
+        console.log(res);
+        const id = localStorage.getItem("id");
+        window.location = `/account/${id}`;
+      })
+      .catch((err) => {
+        setError(err.response.data.message);
+      });
   };
-
+  const loadUser = async () => {
+    const id = localStorage.getItem("id");
+    const data = await dispatch(fetchUserById(id));
+    setFormValues(data.payload.data.user);
+  };
+  useEffect(() => {
+    loadUser();
+  }, []);
   if (error !== "") {
     return <h1>{error}</h1>;
   }
@@ -61,16 +58,40 @@ const CreateForm = () => {
       >
         <input
           type="text"
-          name="name"
-          placeholder="Repo Name"
-          value={formValues.repoName}
+          name="fullname"
+          placeholder="Full Name"
+          value={formValues.fullname}
+          onChange={handleInputChange}
+          className="md:w-[60%] w-[100%] sm:w-[80%] h-[36px] flex items-center pl-[25px] border border-gray-200 rounded-[68px] text-[14px] bg-blue-200 bg-opacity-50 bg-transparent mx-auto"
+        />
+        <input
+          type="text"
+          name="position"
+          placeholder="Position"
+          value={formValues.position}
+          onChange={handleInputChange}
+          className="md:w-[60%] w-[100%] sm:w-[80%] h-[36px] flex items-center pl-[25px] border border-gray-200 rounded-[68px] text-[14px] bg-blue-200 bg-opacity-50 bg-transparent mx-auto"
+        />
+        <input
+          type="text"
+          name="avatarUrl"
+          placeholder="Avatar Url"
+          value={formValues.avatarUrl}
+          onChange={handleInputChange}
+          className="md:w-[60%] w-[100%] sm:w-[80%] h-[36px] flex items-center pl-[25px] border border-gray-200 rounded-[68px] text-[14px] bg-blue-200 bg-opacity-50 bg-transparent mx-auto"
+        />
+        <input
+          type="text"
+          name="linkedinLink"
+          placeholder="LinkedIn Link"
+          value={formValues.linkedinLink}
           onChange={handleInputChange}
           className="md:w-[60%] w-[100%] sm:w-[80%] h-[36px] flex items-center pl-[25px] border border-gray-200 rounded-[68px] text-[14px] bg-blue-200 bg-opacity-50 bg-transparent mx-auto"
         />
         <input
           type="text"
           name="githubLink"
-          placeholder="GitHub Link"
+          placeholder="Github Link"
           value={formValues.githubLink}
           onChange={handleInputChange}
           className="md:w-[60%] w-[100%] sm:w-[80%] h-[36px] flex items-center pl-[25px] border border-gray-200 rounded-[68px] text-[14px] bg-blue-200 bg-opacity-50 bg-transparent mx-auto"
@@ -83,8 +104,6 @@ const CreateForm = () => {
           onChange={handleInputChange}
           className="resize-none md:w-[60%] w-[100%] sm:w-[80%] h-[150px] pl-[25px] pt-[15px] border border-gray-200 rounded-[30px] text-[14px] bg-blue-200 bg-opacity-50 bg-transparent mx-auto"
         />
-        <TechStack getStack={getStack} variant={1} />
-        <TechStack getStack={getStack} variant={2} />
         <div className="md:w-[60%] w-[100%] sm:w-[80%] h-[36px] mx-auto flex items-center justify-center gap-4">
           <button
             type="submit"

@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from "react";
 import TechItem from "./TechItem";
 const TechStack = (props) => {
-  const { getStack } = props;
+  const { getStack, variant } = props;
   const [tech, setTech] = useState([]);
   const [lastInputValue, setLastInputValue] = useState("");
   const handleStackSubmit = function (e) {
     e.preventDefault();
-    console.log("stack");
     if (lastInputValue.length !== 0) {
       setTech([...tech, lastInputValue]);
       setLastInputValue("");
@@ -22,7 +21,7 @@ const TechStack = (props) => {
   };
 
   useEffect(() => {
-    getStack(tech);
+    getStack(tech, variant);
   }, [tech]);
   return (
     <div>
@@ -33,7 +32,7 @@ const TechStack = (props) => {
       >
         <input
           type="text"
-          placeholder="Tech Stack"
+          placeholder={variant == 1 ? "Tech Stack" : "Developers Needed"}
           value={lastInputValue}
           onChange={handleLastInputChange}
           className="h-[36px] w-[80%] flex items-center pl-[25px] border border-gray-200 rounded-[68px] text-[14px] bg-blue-200 bg-opacity-50 bg-transparent"

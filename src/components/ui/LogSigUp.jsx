@@ -4,9 +4,8 @@ const LogSigUp = (props) => {
   const { isAuth } = props;
 
   const handleLogout = () => {
-    // Remove token from localStorage
     localStorage.removeItem("token");
-    //referch page
+    localStorage.removeItem("id");
     window.location.reload();
   };
 

@@ -2,12 +2,16 @@ import { Link } from "react-router-dom";
 import ProjectCard from "../../components/project-gallery/ProjectCard";
 import { useState, useEffect } from "react";
 import axios from "./../../axios.js";
+import DefaultAvatar from "./../../assets/default-user.png";
 const Main = (props) => {
   const { data, isEditable, id } = props;
 
   const [projects, setProjetcs] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-
+  const avatar =
+    data.avatarUrl === "https://www.example-nonexistent-link.com"
+      ? DefaultAvatar
+      : data.avatarUrl;
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -36,8 +40,8 @@ const Main = (props) => {
         <div className=" mb-[150px]">
           <div className="mb-[26px]">
             <img
-              className="rounded-[150px]"
-              src={data.avatarUrl}
+              className="rounded-[150px] w-[100%] h-[100%]"
+              src={avatar}
               alt="avatar"
             />
           </div>
@@ -72,20 +76,20 @@ const Main = (props) => {
             </div>
           </div>
           {isEditable ? (
-            <div className="flex items-center justify-center h-[38px] rounded-[29px] bg-[#526D82] cursor-pointer">
-              <p className="text-[20px] font-regular text-[#EEEEEE]">
-                Edit profile
-              </p>
-            </div>
+            <Link to="/account/edit">
+              <div className="flex items-center justify-center h-[38px] rounded-[29px] bg-[#526D82] cursor-pointer">
+                <p className="text-[20px] font-regular text-[#EEEEEE]">
+                  Edit profile
+                </p>
+              </div>
+            </Link>
           ) : (
             ""
           )}
         </div>
         <div className="flex flex-col gap-y-[58px] lg:mr-[120px] mr-0">
           {projects.map((el) => (
-            <a href={el.githubLink}>
-              <ProjectCard key={el.id} data={el} />{" "}
-            </a>
+            <ProjectCard key={el.id} data={el} />
           ))}
         </div>
       </div>

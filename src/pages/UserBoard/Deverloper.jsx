@@ -1,14 +1,20 @@
 import { Link } from "react-router-dom";
 import "./Developer.css";
+import DefaultAvatar from "./../../assets/default-user.png";
 const Deverloper = (props) => {
   const { data } = props;
+  const colors = ["#D4ADFC", "#0C134F", "#1D267D", "#5C469C"];
+  const avatar =
+    data.avatarUrl === "https://www.example-nonexistent-link.com"
+      ? DefaultAvatar
+      : data.avatarUrl;
   return (
     <div className="bg-[#5D6C7D] rounded-[32px]">
       <div className="pt-[16px] px-[28px] flex gap-4 custom:flex-row flex-col">
         <div className="flex flex-col gap-y-[8px] items-center">
           <img
             className="max-w-[83px] max-h-[83px] rounded-[50%]"
-            src={data.avatarUrl}
+            src={avatar}
             alt=""
           />
           <Link>
@@ -50,7 +56,11 @@ const Deverloper = (props) => {
         <div className="scrollbar flex gap-x-4 max-w-[395px] overflow-x-auto">
           {data.techStack.map((el) => {
             return (
-              <div className="w-[71px] h-[13px] rounded-[30px] bg-[#D4ADFC] flex items-center justify-center text-[8px] ">
+              <div
+                className={`w-[71px] h-[13px] rounded-[30px] bg-[${
+                  colors[Math.floor(Math.random() * 4)]
+                }] flex items-center justify-center text-[8px] `}
+              >
                 {el}
               </div>
             );

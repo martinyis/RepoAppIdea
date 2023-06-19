@@ -23,3 +23,10 @@
 .scrollbar::-webkit-scrollbar-thumb:hover {
   background-color: darkgray;
 }
+.edit-delete-container {
+  display: none;
+}
+
+.bg-blue-200:hover .edit-delete-container {
+  display: block;
+}
