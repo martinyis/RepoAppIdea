@@ -1,8 +1,7 @@
 const ErrorPopUp = (props) => {
-  const { error } = props;
+  const { error, handleTryAgain } = props;
   const handleClick = () => {
-    //reload apge
-    window.location.reload();
+    handleTryAgain();
   };
   return (
     <div className="absolute top-[200px] w-[50%] h-[50%] bg-[#ffffff] text-[#ff0000] rounded-[50px] flex flex-col items-center justify-center gap-[80px]">

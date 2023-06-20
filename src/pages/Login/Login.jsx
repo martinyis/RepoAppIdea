@@ -65,7 +65,7 @@ const Login = () => {
           />
           <input
             className="border h-10 pl-[12px] border-solid border-gray-300 rounded-md w-full font-openSans font-normal font-400 text-sm leading-5 text-gray-400"
-            type="text"
+            type="password"
             name="password"
             value={formData.password}
             placeholder="Password"
