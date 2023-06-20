@@ -1,8 +1,5 @@
 import { Link } from "react-router-dom";
-import star from "./../../assets/icons/star.png";
-import fillStar from "./../../assets/icons/fill-star.png";
 import devlook from "./../../assets/icons/dev-look.png";
-import { Scrollbars } from "react-custom-scrollbars";
 import { useMediaQuery } from "react-responsive";
 import "./ProjectCard.css"; // Import the CSS file
 import { useState } from "react";
@@ -12,6 +9,7 @@ const ProjectCard = (props) => {
   const { data } = props;
   const isMobile = useMediaQuery({ maxWidth: "365px" });
   const [isHovered, setIsHovered] = useState(false);
+
   const handleMouseEnter = () => {
     setIsHovered(true);
   };
