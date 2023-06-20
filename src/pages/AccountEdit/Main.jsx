@@ -2,7 +2,7 @@ import EditForm from "./EditForm";
 
 const Main = () => {
   return (
-    <div>
+    <div className="mx-auto">
       <EditForm />
     </div>
   );

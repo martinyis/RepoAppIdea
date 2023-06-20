@@ -3,7 +3,6 @@ import "./Developer.css";
 import DefaultAvatar from "./../../assets/default-user.png";
 const Deverloper = (props) => {
   const { data } = props;
-  const colors = ["#D4ADFC", "#0C134F", "#1D267D", "#5C469C"];
   const avatar =
     data.avatarUrl === "https://www.example-nonexistent-link.com"
       ? DefaultAvatar
@@ -17,8 +16,8 @@ const Deverloper = (props) => {
             src={avatar}
             alt=""
           />
-          <Link>
-            <p className="text-[12px] text-[#FFFFFF] font-bold">
+          <Link to={`/account/${data._id}`}>
+            <p className="text-[12px] font-bold text-white hover:text-[#27374D]">
               {data.username}
             </p>
           </Link>
@@ -29,7 +28,7 @@ const Deverloper = (props) => {
               {data.position}
             </p>
           </div>
-          <div className="flex gap-x-[2px]">
+          <div className="flex gap-x-[10px]">
             <div className="flex items-center justify-center w-[77px] h-[22px] rounded-[29px] bg-black cursor-pointer">
               <a
                 href={data.githubLink}
@@ -57,9 +56,7 @@ const Deverloper = (props) => {
           {data.techStack.map((el) => {
             return (
               <div
-                className={`w-[71px] h-[13px] rounded-[30px] bg-[${
-                  colors[Math.floor(Math.random() * 4)]
-                }] flex items-center justify-center text-[8px] `}
+                className={`w-[71px] h-[13px] rounded-[30px] bg-[#D4ADFC] flex items-center justify-center text-[8px] `}
               >
                 {el}
               </div>

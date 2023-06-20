@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "./../../axios.js";
 import { useDispatch } from "react-redux";
 import { fetchUserById } from "../../redux/slices/user.js";
+import ErrorPopUp from "../../components/ui/ErrorPopUp.jsx";
 const CreateForm = () => {
   const dispatch = useDispatch();
   const [error, setError] = useState("");
@@ -48,7 +49,11 @@ const CreateForm = () => {
     loadUser();
   }, []);
   if (error !== "") {
-    return <h1>{error}</h1>;
+    return (
+      <div className="ml-[150px]">
+        <ErrorPopUp error={error} />
+      </div>
+    );
   }
   return (
     <div className="mt-[136px] mb-[370px] w-[100%] flex flex-col items-center justify-center">

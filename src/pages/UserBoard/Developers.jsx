@@ -39,9 +39,10 @@ const Developers = () => {
     <div className="mt-[98px] grid lg:grid-cols-3 grid-cols-1 md:grid-cols-2 gap-y-[45px] gap-x-[19px]">
       {data.map((el) => {
         return (
-          <Link to={`/account/${el._id}`}>
-            <Deverloper key={el.id} data={el} />
-          </Link>
+          // <Link to={`/account/${el._id}`}>
+          //   <Deverloper key={el.id} data={el} />
+          // </Link>
+          <Deverloper key={el.id} data={el} />
         );
       })}
     </div>

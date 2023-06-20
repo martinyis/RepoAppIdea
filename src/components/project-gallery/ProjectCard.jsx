@@ -7,10 +7,10 @@ import { useMediaQuery } from "react-responsive";
 import "./ProjectCard.css"; // Import the CSS file
 import { useState } from "react";
 import EditDelete from "./EditDelete";
+import LikeCount from "./LikeCount";
 const ProjectCard = (props) => {
   const { data } = props;
   const isMobile = useMediaQuery({ maxWidth: "365px" });
-  const [stared, setStared] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
   const handleMouseEnter = () => {
     setIsHovered(true);
@@ -18,10 +18,6 @@ const ProjectCard = (props) => {
 
   const handleMouseLeave = () => {
     setIsHovered(false);
-  };
-  const newStar = stared ? fillStar : star;
-  const handleStar = () => {
-    setStared(!stared);
   };
   return (
     <div
@@ -45,15 +41,7 @@ const ProjectCard = (props) => {
               <EditDelete user={data.author} project={data._id} />
             </div>
           )}
-          <div className="flex gap-x-2 items-center justify-center">
-            <img
-              onClick={handleStar}
-              className="mt-[-3px] cursor-pointer"
-              src={newStar}
-              alt=""
-            />
-            <p className="text-[#DDE6ED] text-2xl">{data.usersLiked.length}</p>
-          </div>
+          <LikeCount data={data} />
         </div>
       </div>
       <p className="px-6 text-[#DDE6ED] text-xs pb-[6px]">
