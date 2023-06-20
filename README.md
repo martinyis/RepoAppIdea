@@ -17,7 +17,7 @@
     .
     <a href="https://github.com/martinyis/RepoAppIdea/issues">Report Bug</a>
     .
-    <a href="https://github.com/martinyis/RepoAppIdea/issues">Request Feature</a>
+    <a href="https://github.com/martinyis/RepoAppIdea/issues">Request Feature-</a>
   </p>
 </p>
 
