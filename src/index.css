@@ -2,8 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:300,regular,500,600,700,800,300italic,italic,500italic,600italic,700italic,800italic);
+@import url(https://fonts.googleapis.com/css?family=Roboto:300,regular,500,600,700,800,300italic,italic,500italic,600italic,700italic,800italic);
 body {
   background-color: #27374d;
   font-family: "Roboto";
   color: #ffffff;
+  overflow-x: hidden;
 }

@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import TechItem from "./TechItem";
 import TechStack from "./TechStack";
 import axios from "./../../axios.js";
 import ErrorPopUp from "../../components/ui/ErrorPopUp";

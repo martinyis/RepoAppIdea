@@ -14,7 +14,7 @@ const ProjectGallery = () => {
 
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-
+  data.sort((a, b) => b.usersLiked.length - a.usersLiked.length);
   useEffect(() => {
     const fetchData = async () => {
       try {

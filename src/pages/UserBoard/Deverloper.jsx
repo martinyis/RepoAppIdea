@@ -8,8 +8,8 @@ const Deverloper = (props) => {
       ? DefaultAvatar
       : data.avatarUrl;
   return (
-    <div className="bg-[#5D6C7D] rounded-[32px]">
-      <div className="pt-[16px] px-[28px] flex gap-4 custom:flex-row flex-col">
+    <div className="bg-[#5D6C7D] rounded-[32px] relative">
+      <div className="pt-[16px] px-[28px] flex gap-4 custom:flex-row flex-col pb-[30px]">
         <div className="flex flex-col gap-y-[8px] items-center">
           <img
             className="max-w-[83px] max-h-[83px] rounded-[50%]"
@@ -51,12 +51,12 @@ const Deverloper = (props) => {
           </p>
         </div>
       </div>
-      <div className="h-[30px] w-[100%] bg-[#DDE6ED] rounded-tl-[0px] rounded-tr-[0px] rounded-bl-[32px] rounded-br-[32px] mt-[15px]  flex items-center justify-center">
+      <div className="h-[30px] w-[100%] bg-[#DDE6ED] rounded-tl-[0px] rounded-tr-[0px] rounded-bl-[32px] rounded-br-[32px] mt-[15px]  flex items-center justify-center absolute bottom-0 w-[100%]">
         <div className="scrollbar flex gap-x-4 max-w-[395px] overflow-x-auto">
           {data.techStack.map((el) => {
             return (
               <div
-                className={`w-[71px] h-[13px] rounded-[30px] bg-[#D4ADFC] flex items-center justify-center text-[8px] `}
+                className={`w-[71px] sm:min-w-[71px] min-w-[51px] h-[13px] rounded-[30px] bg-[#D4ADFC] flex items-center justify-center text-[8px] `}
               >
                 {el}
               </div>

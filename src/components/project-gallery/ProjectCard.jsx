@@ -19,7 +19,7 @@ const ProjectCard = (props) => {
   };
   return (
     <div
-      className="bg-blue-200 bg-opacity-30 rounded-28 rounded-[28px] hover:scale-105 transition-all duration-300 ease-in-out cursor-pointer"
+      className="bg-blue-200 bg-opacity-30 rounded-28 rounded-[28px] hover:scale-105 transition-all duration-300 ease-in-out cursor-pointer relative "
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
@@ -51,24 +51,24 @@ const ProjectCard = (props) => {
       <p className="px-6 text-[#F5F5F5] font-base max-w-[450px] pb-[16px]">
         {data.description}
       </p>
-      <div className="px-6 flex items-center pb-[25px]">
+      <div className="px-6 flex items-center pb-[78px]">
         <img src={devlook} alt="" />
         <div className="pl-5 flex gap-x-4 gap-y-2 flex-wrap">
           {data.developers.map((el) => {
             return (
-              <div className="w-[137px] h-[31px] text-white text-[12px] rounded-[18px] bg-[#27374D] flex justify-center items-center">
+              <div className="sm:w-[137px] w-[90px] h-[31px] px-5 text-white sm:text-[12px] text-[11px]  rounded-[18px] bg-[#27374D] flex justify-center items-center">
                 {el}
               </div>
             );
           })}
         </div>
       </div>
-      <div className="h-[53px] bg-[#DDE6ED] rounded-t-lg rounded-b-[30px] flex items-center justify-center">
+      <div className="h-[53px] bg-[#DDE6ED] rounded-t-lg rounded-b-[30px] flex items-center justify-center absolute bottom-0 w-[100%]">
         <div className="scrollbar flex gap-x-4 max-w-[634px] overflow-x-auto">
           {data.techStack.map((el) => {
             return (
               <div
-                className={`w-[100px] h-[19px] rounded-[30px] bg-[#0C134F] flex items-center justify-center text-[10px]`}
+                className={`w-[100px] sm:min-w-[100px] min-w-[70px] h-[19px] rounded-[30px] bg-[#0C134F] flex items-center justify-center text-[10px]`}
               >
                 {el}
               </div>

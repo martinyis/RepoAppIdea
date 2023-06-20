@@ -3,6 +3,7 @@ import axios from "./../../axios.js";
 import { useDispatch } from "react-redux";
 import { fetchUserById } from "../../redux/slices/user.js";
 import ErrorPopUp from "../../components/ui/ErrorPopUp.jsx";
+import TechStack from "../CreateProject/TechStack.jsx";
 const CreateForm = () => {
   const dispatch = useDispatch();
   const [error, setError] = useState("");
@@ -13,6 +14,7 @@ const CreateForm = () => {
     githubLink: "",
     linkedinLink: "",
     description: "",
+    techStack: [],
   });
 
   const handleInputChange = function (e) {
@@ -25,6 +27,9 @@ const CreateForm = () => {
   const handleRelocate = (e) => {
     e.preventDefault();
     window.history.back();
+  };
+  const handleTryAgain = () => {
+    setError("");
   };
 
   const handleSubmit = async (event) => {
@@ -45,86 +50,111 @@ const CreateForm = () => {
     const data = await dispatch(fetchUserById(id));
     setFormValues(data.payload.data.user);
   };
+  const getStack = (stack, variant) => {
+    if (variant === 1) {
+      setFormValues((prevFormValues) => ({
+        ...prevFormValues,
+        techStack: stack,
+      }));
+    } else {
+      setFormValues((prevFormValues) => ({
+        ...prevFormValues,
+        positionsNeeded: stack,
+      }));
+    }
+  };
   useEffect(() => {
     loadUser();
   }, []);
-  if (error !== "") {
-    return (
-      <div className="ml-[150px]">
-        <ErrorPopUp error={error} />
-      </div>
-    );
-  }
+  const remainingCharacters = formValues.description.length;
   return (
-    <div className="mt-[136px] mb-[370px] w-[100%] flex flex-col items-center justify-center">
-      <form
-        onSubmit={handleSubmit}
-        className="w-[100%] flex flex-col gap-y-[30px]"
+    <>
+      {error !== "" ? (
+        <ErrorPopUp error={error} handleTryAgain={handleTryAgain} />
+      ) : (
+        ""
+      )}
+      <div
+        className={`mt-[136px] mb-[370px] w-[100%] flex flex-col items-center justify-center ${
+          error !== "" ? "hidden" : "flex"
+        }`}
       >
-        <input
-          type="text"
-          name="fullname"
-          placeholder="Full Name"
-          value={formValues.fullname}
-          onChange={handleInputChange}
-          className="outline-none focus:ring-0 focus:border-blue-200 md:w-[60%] w-[100%] sm:w-[80%] h-[36px] flex items-center pl-[25px] border border-gray-200 rounded-[68px] text-[14px] bg-blue-200 bg-opacity-50 bg-transparent mx-auto"
-        />
-        <input
-          type="text"
-          name="position"
-          placeholder="Position"
-          value={formValues.position}
-          onChange={handleInputChange}
-          className="outline-none focus:ring-0 focus:border-blue-200 md:w-[60%] w-[100%] sm:w-[80%] h-[36px] flex items-center pl-[25px] border border-gray-200 rounded-[68px] text-[14px] bg-blue-200 bg-opacity-50 bg-transparent mx-auto"
-        />
-        <input
-          type="text"
-          name="avatarUrl"
-          placeholder="Avatar Url"
-          value={formValues.avatarUrl}
-          onChange={handleInputChange}
-          className="outline-none focus:ring-0 focus:border-blue-200 md:w-[60%] w-[100%] sm:w-[80%] h-[36px] flex items-center pl-[25px] border border-gray-200 rounded-[68px] text-[14px] bg-blue-200 bg-opacity-50 bg-transparent mx-auto"
-        />
-        <input
-          type="text"
-          name="linkedinLink"
-          placeholder="LinkedIn Link"
-          value={formValues.linkedinLink}
-          onChange={handleInputChange}
-          className="outline-none focus:ring-0 focus:border-blue-200 md:w-[60%] w-[100%] sm:w-[80%] h-[36px] flex items-center pl-[25px] border border-gray-200 rounded-[68px] text-[14px] bg-blue-200 bg-opacity-50 bg-transparent mx-auto"
-        />
-        <input
-          type="text"
-          name="githubLink"
-          placeholder="Github Link"
-          value={formValues.githubLink}
-          onChange={handleInputChange}
-          className="outline-none focus:ring-0 focus:border-blue-200 md:w-[60%] w-[100%] sm:w-[80%] h-[36px] flex items-center pl-[25px] border border-gray-200 rounded-[68px] text-[14px] bg-blue-200 bg-opacity-50 bg-transparent mx-auto"
-        />
-        <textarea
-          type="text"
-          name="description"
-          placeholder="Description"
-          value={formValues.description}
-          onChange={handleInputChange}
-          className="outline-none focus:ring-0 focus:border-blue-200 resize-none md:w-[60%] w-[100%] sm:w-[80%] h-[150px] pl-[25px] pt-[15px] border border-gray-200 rounded-[30px] text-[14px] bg-blue-200 bg-opacity-50 bg-transparent mx-auto"
-        />
-        <div className="md:w-[60%] w-[100%] sm:w-[80%] h-[36px] mx-auto flex items-center justify-center gap-4">
-          <button
-            type="submit"
-            className="w-[170px] h-[38px] flex items-center justify-center bg-[#5C469C] rounded-[29px] text-[20px] text-[##EEEEEE]"
-          >
-            Save
-          </button>
-          <button
-            onClick={handleRelocate}
-            className="w-[170px] h-[38px] flex items-center justify-center bg-transparent border border-gray-400 shadow-md rounded-[29px] text-[20px] text-[##EEEEEE]"
-          >
-            Cancel
-          </button>
-        </div>
-      </form>
-    </div>
+        <form
+          onSubmit={handleSubmit}
+          className="w-[100%] flex flex-col gap-y-[30px]"
+        >
+          <input
+            type="text"
+            name="fullname"
+            placeholder="Full Name"
+            value={formValues.fullname}
+            onChange={handleInputChange}
+            className="outline-none focus:ring-0 focus:border-blue-200 md:w-[60%] w-[100%] sm:w-[80%] h-[36px] flex items-center pl-[25px] border border-gray-200 rounded-[68px] text-[14px] bg-blue-200 bg-opacity-50 bg-transparent mx-auto"
+          />
+          <input
+            type="text"
+            name="position"
+            placeholder="Position"
+            value={formValues.position}
+            onChange={handleInputChange}
+            className="outline-none focus:ring-0 focus:border-blue-200 md:w-[60%] w-[100%] sm:w-[80%] h-[36px] flex items-center pl-[25px] border border-gray-200 rounded-[68px] text-[14px] bg-blue-200 bg-opacity-50 bg-transparent mx-auto"
+          />
+          <input
+            type="text"
+            name="avatarUrl"
+            placeholder="Avatar Url"
+            value={formValues.avatarUrl}
+            onChange={handleInputChange}
+            className="outline-none focus:ring-0 focus:border-blue-200 md:w-[60%] w-[100%] sm:w-[80%] h-[36px] flex items-center pl-[25px] border border-gray-200 rounded-[68px] text-[14px] bg-blue-200 bg-opacity-50 bg-transparent mx-auto"
+          />
+          <input
+            type="text"
+            name="linkedinLink"
+            placeholder="LinkedIn Link"
+            value={formValues.linkedinLink}
+            onChange={handleInputChange}
+            className="outline-none focus:ring-0 focus:border-blue-200 md:w-[60%] w-[100%] sm:w-[80%] h-[36px] flex items-center pl-[25px] border border-gray-200 rounded-[68px] text-[14px] bg-blue-200 bg-opacity-50 bg-transparent mx-auto"
+          />
+          <input
+            type="text"
+            name="githubLink"
+            placeholder="Github Link"
+            value={formValues.githubLink}
+            onChange={handleInputChange}
+            className="outline-none focus:ring-0 focus:border-blue-200 md:w-[60%] w-[100%] sm:w-[80%] h-[36px] flex items-center pl-[25px] border border-gray-200 rounded-[68px] text-[14px] bg-blue-200 bg-opacity-50 bg-transparent mx-auto"
+          />
+          <div className="md:w-[60%] w-[100%] sm:w-[80%] mx-auto relative">
+            <textarea
+              type="text"
+              name="description"
+              placeholder="Description"
+              value={formValues.description}
+              onChange={handleInputChange}
+              className="resize-none w-[100%] h-[150px] pl-[25px] pt-[15px] border border-gray-200 rounded-[30px] text-[14px] bg-blue-200 bg-opacity-50 bg-transparent mx-auto outline-none focus:ring-0 focus:border-blue-200"
+              maxLength={700}
+            />
+            <p className="absolute top-2 right-10 text-[14px] text-[#EEEEEE] ">
+              {remainingCharacters + " /" + "700"}
+            </p>
+          </div>
+          <TechStack getStack={getStack} variant={1} />
+          <div className="md:w-[60%] w-[100%] sm:w-[80%] h-[36px] mx-auto flex items-center justify-center gap-4">
+            <button
+              type="submit"
+              className="w-[170px] h-[38px] flex items-center justify-center bg-[#5C469C] rounded-[29px] text-[20px] text-[##EEEEEE]"
+            >
+              Save
+            </button>
+            <button
+              onClick={handleRelocate}
+              className="w-[170px] h-[38px] flex items-center justify-center bg-transparent border border-gray-400 shadow-md rounded-[29px] text-[20px] text-[##EEEEEE]"
+            >
+              Cancel
+            </button>
+          </div>
+        </form>
+      </div>
+    </>
   );
 };
 
