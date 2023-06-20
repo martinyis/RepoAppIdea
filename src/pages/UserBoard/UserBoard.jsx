@@ -6,7 +6,7 @@ import Main from "./Main";
 
 const UserBoard = () => {
   return (
-    <div className="max-w-[1440px] mx-auto px-6">
+    <div className="max-w-[1440px] mx-auto px-6 relative pb-[300px]">
       <NavBar />
       <Main />
       <Footer />

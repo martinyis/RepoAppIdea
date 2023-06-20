@@ -20,7 +20,7 @@ const Footer = () => {
     };
   }, []);
   return (
-    <div className="mt-auto m-auto flex flex-col items-center justify-center mr-0 ml-0 mb-[64px] ">
+    <div className=" flex flex-col items-center justify-center mb-[64px] absolute bottom-0 w-[100%]  left-1/2 transform -translate-x-1/2">
       <div className="pb-4">
         <img src={logoSrc} alt="" />
       </div>

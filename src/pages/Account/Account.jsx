@@ -34,7 +34,7 @@ const Account = () => {
   }, [data, id]);
 
   return (
-    <div className="flex flex-col min-h-screen px-6 max-w-[1440px] mx-auto">
+    <div className="flex flex-col min-h-screen px-6 max-w-[1440px] mx-auto relative pb-[300px]">
       <NavBar />
       {isLoading ? (
         <div className="flex-grow top-[350px] absolute left-1/2 transform -translate-x-1/2">
