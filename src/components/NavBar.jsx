@@ -8,12 +8,13 @@ import { IoIosClose } from "react-icons/io";
 import { useSelector } from "react-redux";
 import { selectIsAuth } from "../redux/slices/auth";
 const NavBar = () => {
-  const [nav, setNav] = useState(false);
+  const [nav, setNav] = useState({ open: false, hamburgerState: "" });
   const isAuth = useSelector(selectIsAuth);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
   const toggleNav = () => {
-    setNav(!nav);
+    const hamburgerMenu = nav.open ? "" : "fixed";
+    setNav({ ...nav, open: !nav.open, hamburgerState: hamburgerMenu });
   };
 
   useEffect(() => {
@@ -31,7 +32,9 @@ const NavBar = () => {
   const logoSrc = windowWidth < 768 ? smallLogo : logo;
 
   return (
-    <div className="mx-auto flex justify-between pt-[24px] items-center mr-0 ml-0">
+    <div
+      className={`mx-auto flex justify-between pt-[24px] items-center mr-0 ml-0 max-[720px]:${nav.hamburgerState} top-0 left-0 right-0 z-40`}
+    >
       <Link to="/">
         <div className="">
           <img src={logoSrc} alt="Logo" className="" />
@@ -53,7 +56,7 @@ const NavBar = () => {
       <LogSigUp isAuth={isAuth} />
       <ul
         className={`absolute top-0 left-1/2 transform -translate-x-1/2 transition-all duration-300 text-white flex flex-col text-[25px] gap-y-[75px] bg-[#526D82] w-[100%] items-center h-screen ${
-          nav ? "translate-y-0" : "-translate-y-full"
+          nav.open ? "translate-y-0" : "-translate-y-full"
         }`}
       >
         <li className="pt-[100px]">
@@ -66,7 +69,7 @@ const NavBar = () => {
           <Link to="/user-board">Developers</Link>
         </li>
       </ul>
-      {!nav ? (
+      {!nav.open ? (
         <HiBars3
           size={30}
           color="white"
