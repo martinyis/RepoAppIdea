@@ -23,13 +23,13 @@ const Developers = () => {
     fetchData();
   }, []);
 
-  // if (isLoading) {
-  return (
-    <div className="mt-[98px] grid lg:grid-cols-3 grid-cols-1 md:grid-cols-2 gap-y-[45px] gap-x-[19px]">
-      <DeveloperSkeleton cards={6} />;
-    </div>
-  );
-  // }
+  if (isLoading) {
+    return (
+      <div className="mt-[98px] grid lg:grid-cols-3 grid-cols-1 md:grid-cols-2 gap-y-[45px] gap-x-[19px]">
+        <DeveloperSkeleton cards={6} />;
+      </div>
+    );
+  }
   if (data.length === 0) {
     return (
       <p className="text-center mt-[100px] text-3xl text-bold bg-[#5C469C] rounded-[26px] py-9">
