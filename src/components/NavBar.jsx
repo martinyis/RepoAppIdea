@@ -14,6 +14,9 @@ const NavBar = () => {
 
   const toggleNav = () => {
     const hamburgerMenu = nav.open ? "" : "fixed";
+    nav.open
+      ? (document.body.style.overflow = "")
+      : (document.body.style.overflow = "hidden");
     setNav({ ...nav, open: !nav.open, hamburgerState: hamburgerMenu });
   };
 
