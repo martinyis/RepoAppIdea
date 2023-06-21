@@ -24,7 +24,7 @@ const Footer = () => {
       <div className="pb-4">
         <img src={logoSrc} alt="" />
       </div>
-      <ul class="flex flex-col xs:flex-row justify-center gap-y-5 items-center gap-x-10 text-base text-[#F5F5F5] pb-10">
+      <ul className="flex flex-col xs:flex-row justify-center gap-y-5 items-center gap-x-10 text-base text-[#F5F5F5] pb-10">
         <li>
           <a href="/">About</a>
         </li>

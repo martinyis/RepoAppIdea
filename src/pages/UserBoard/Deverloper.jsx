@@ -42,7 +42,7 @@ const Deverloper = (props) => {
                 href={data.linkedinLink}
                 className="text-[#EEEEEE] text-[12px] font-regular"
               >
-                LinkedIn
+                LinkedIn  
               </a>
             </div>
           </div>
@@ -51,7 +51,7 @@ const Deverloper = (props) => {
           </p>
         </div>
       </div>
-      <div className="h-[30px] w-[100%] bg-[#DDE6ED] rounded-tl-[0px] rounded-tr-[0px] rounded-bl-[32px] rounded-br-[32px] mt-[15px]  flex items-center justify-center absolute bottom-0 w-[100%]">
+      <div className="h-[30px]  bg-[#DDE6ED] rounded-tl-[0px] rounded-tr-[0px] rounded-bl-[32px] rounded-br-[32px] mt-[15px]  flex items-center justify-center absolute bottom-0 w-[100%]">
         <div className="scrollbar flex gap-x-4 max-w-[395px] overflow-x-auto">
           {data.techStack.map((el) => {
             return (
