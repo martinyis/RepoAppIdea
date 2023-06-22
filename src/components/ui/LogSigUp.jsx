@@ -17,6 +17,16 @@ const LogSigUp = (props) => {
     console.log(user);
   }, []);
   const id = localStorage.getItem("id");
+
+  // handles long username
+  function getFirstTenCharacters(str) {
+    if (str.length <= 10) {
+      return str;
+    } else {
+      return str.substring(0, 10)+"..";
+    }
+  }
+
   return (
     <div>
       {isAuth ? (
@@ -26,7 +36,7 @@ const LogSigUp = (props) => {
           </button>
           <Link to={`/account/${id}`}>
             <button className="sm:w-[126px] sm:h-[38px] w-[70px] h-[28px] bg-[#526D82] rounded-[38px]  hover:scale-105 transition-all duration-300 ease-in-out">
-              {username ? username : "Account"}
+              {username ? getFirstTenCharacters(username) : "Account"}
             </button>
           </Link>
         </div>
