@@ -1,41 +1,48 @@
-import star from "./../../assets/icons/star.png";
-import fillStar from "./../../assets/icons/fill-star.png";
-import { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import axios from "./../../axios.js";
-import { useSelector } from "react-redux";
 import { selectIsAuth } from "../../redux/slices/auth";
-const LikeCount = (props) => {
-  const { data } = props;
-  const [stared, setStared] = useState(
-    data.usersLiked.includes(localStorage.getItem("id"))
-  );
-  const newStar = stared ? fillStar : star;
+import starIcon from "../../assets/icons/star.png";
+import fillStarIcon from "../../assets/icons/fill-star.png";
+
+const LikeCount = ({ data }) => {
+  const dispatch = useDispatch();
   const isAuth = useSelector(selectIsAuth);
-  const handleStar = () => {
-    if (isAuth) {
-      setStared(!stared);
-      axios
-        .patch(`/api/v1/projects/like/${data._id}`)
-        .then((res) => {
-          console.log(res.data.data.liked);
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-      window.location.reload();
-    } else {
-      return;
-    }
+  const [isLiked, setIsLiked] = useState(false);
+  const [likeCount, setLikeCount] = useState(0);
+
+  useEffect(() => {
+    setIsLiked(data.usersLiked.includes(localStorage.getItem("id")));
+    setLikeCount(data.usersLiked.length);
+  }, [data.usersLiked]);
+
+  const handleLike = () => {
+    if (!isAuth) return;
+
+    setIsLiked(!isLiked);
+    setLikeCount((prevCount) => (isLiked ? prevCount - 1 : prevCount + 1));
+
+    axios
+      .patch(`/api/v1/projects/like/${data._id}`)
+      .then((res) => {
+        console.log(res.data.data.liked);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
+
+  const starIconSrc = isLiked ? fillStarIcon : starIcon;
+
   return (
     <div className="flex gap-x-2 items-center justify-center">
       <img
-        onClick={handleStar}
+        onClick={handleLike}
         className="mt-[-3px] cursor-pointer"
-        src={newStar}
+        src={starIconSrc}
         alt=""
       />
-      <p className="text-[#DDE6ED] text-2xl">{data.usersLiked.length}</p>
+      <p className="text-[#DDE6ED] text-2xl">{likeCount}</p>
     </div>
   );
 };
