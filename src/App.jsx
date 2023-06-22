@@ -17,7 +17,6 @@ function App() {
   const fetchData = async () => {
     const data = await dispatch(fetchMe());
   };
-
   useEffect(() => {
     fetchData();
   }, []);
