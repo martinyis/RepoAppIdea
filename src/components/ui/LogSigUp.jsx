@@ -35,7 +35,7 @@ const LogSigUp = (props) => {
             Logout
           </button>
           <Link to={`/account/${id}`}>
-            <button className="sm:w-[126px] sm:h-[38px] w-[70px] h-[28px] bg-[#526D82] rounded-[38px]  hover:scale-105 transition-all duration-300 ease-in-out">
+            <button className="sm:w-[126px] sm: h-[38px] w-[85px] h-[28px] bg-[#526D82] rounded-[38px]  hover:scale-105 transition-all duration-300 ease-in-out">
               {username ? getFirstTenCharacters(username) : "Account"}
             </button>
           </Link>
