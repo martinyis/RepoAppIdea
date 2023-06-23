@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 import { selectIsAuth } from "../../redux/slices/auth";
 import { useEffect } from "react";
 import axios from "./../../axios.js";
-import Spinner from "../ui/Spinner";
+import LoadingSkeleton from "../ui/LoadingSkeleton";
 
 // ...import statements
 
@@ -46,8 +46,8 @@ const ProjectGallery = () => {
         )}
       </div>
       {isLoading ? (
-        <div className="flex justify-center mt-8">
-          <Spinner color="#ffffff" size={30} loading={true} />
+        <div className="grid md:grid-cols-2 grid-cols-1 gap-8 gap-y-[56px]">
+          <LoadingSkeleton />
         </div>
       ) : (
         <>
