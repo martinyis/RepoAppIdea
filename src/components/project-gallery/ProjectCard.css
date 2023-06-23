@@ -61,7 +61,6 @@
 .tech-item {
   /* Styling for each tech item */
   user-select: none;
-  width: 100px;
   min-width: 100px;
   height: 25px;
   border-radius: 30px;

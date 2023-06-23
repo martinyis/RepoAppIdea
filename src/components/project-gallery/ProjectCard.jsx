@@ -64,7 +64,7 @@ const ProjectCard = (props) => {
       </div>
       <div id="techStack" className="h-14 bg-gray-100 rounded-t-lg rounded-b-3xl overflow-hidden">
         <div className="scrollable-container overflow-x-auto py-2">
-          <div className="scrollable-conten whitespace-nowrap flex space-x-4">
+          <div className="scrollable-content whitespace-nowrap flex space-x-4">
             {data.techStack.map((el) => (
               <div className="tech-item bg-blue-500 text-white px-4 py-2 rounded-full text-xl">{el}</div>
             ))}
