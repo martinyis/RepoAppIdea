@@ -38,7 +38,7 @@ const Developers = () => {
     );
   }
   return (
-    <div className="mt-[98px] grid lg:grid-cols-3 grid-cols-1 md:grid-cols-2 gap-y-[45px] gap-x-[19px]"style={{ position: 'relative', zIndex: -1 }}>
+    <div className="mt-[98px] grid lg:grid-cols-3 grid-cols-1 md:grid-cols-2 gap-y-[45px] gap-x-[19px]">
       {data.map((el) => {
         return (
           // <Link to={`/account/${el._id}`}>

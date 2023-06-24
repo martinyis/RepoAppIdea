@@ -56,7 +56,7 @@ const ProjectGallery = () => {
               OOPS, IT SEEMS LIKE THERE ARE NO PROJECTS YET
             </p> // Alternative content when data is empty
           ) : (
-            <div className="grid md:grid-cols-2 grid-cols-1 gap-8 gap-y-[56px]" style={{ position: 'relative', zIndex: -1 }}>
+            <div className="grid md:grid-cols-2 grid-cols-1 gap-8 gap-y-[56px]">
               {data.map((el) => (
                 <ProjectCard key={el.id} data={el} />
               ))}
