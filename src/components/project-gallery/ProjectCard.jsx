@@ -19,14 +19,13 @@ const ProjectCard = (props) => {
   };
   return (
     <div
-      className="bg-blue-200 bg-opacity-30 rounded-28 rounded-[28px] hover:scale-105 transition-all duration-300 ease-in-out cursor-pointer relative "
+      className=" bg-blue-200 bg-opacity-30 rounded-28 rounded-[28px] hover:scale-105 transition-all duration-300 ease-in-out cursor-pointer relative "
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
       <div
-        className={`px-6 ${
-          isMobile ? "flex flex-col" : "flex justify-between"
-        } pt-[18px] items-center pb-[5px]`}
+        className={`px-6 ${isMobile ? "flex flex-col" : "flex justify-between"
+          } pt-[18px] items-center pb-[5px]`}
       >
         <a href={data.githubLink}>
           <h3 className="text-2xl text-white font-bold hover:text-[#27374D]">
@@ -63,19 +62,16 @@ const ProjectCard = (props) => {
           })}
         </div>
       </div>
-      <div className="h-[53px] bg-[#DDE6ED] rounded-t-lg rounded-b-[30px] flex items-center justify-center absolute bottom-0 w-[100%]">
-        <div className="scrollbar flex gap-x-4 max-w-[634px] overflow-x-auto">
-          {data.techStack.map((el) => {
-            return (
-              <div
-                className={`w-[100px] sm:min-w-[100px] min-w-[70px] h-[19px] rounded-[30px] bg-[#0C134F] flex items-center justify-center text-[10px]`}
-              >
-                {el}
-              </div>
-            );
-          })}
+      <div id="techStack" className="h-14 bg-gray-100 rounded-t-lg rounded-b-3xl overflow-hidden">
+        <div className="scrollable-container overflow-x-auto py-2">
+          <div className="scrollable-content whitespace-nowrap flex space-x-4">
+            {data.techStack.map((el) => (
+              <div className="tech-item bg-blue-500 text-white px-4 py-2 rounded-full text-xl">{el}</div>
+            ))}
+          </div>
         </div>
       </div>
+
     </div>
   );
 };

@@ -30,3 +30,54 @@
 .bg-blue-200:hover .edit-delete-container {
   display: block;
 }
+#techStack {
+  /* Styling for the container */
+  height: 53px;
+  background-color: #DDE6ED;
+  /* border-radius: 20px 20px 0 0; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+.scrollable-container {
+  /* Styling for the scrollable container */
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.scrollable-content {
+  /* Styling for the content within the scrollable container */
+  display: inline-flex;
+  gap: 10px;
+  /* Add some gap between items */
+  padding: 5px;
+  /* Add some padding around items */
+}
+
+.tech-item {
+  /* Styling for each tech item */
+  user-select: none;
+  min-width: 100px;
+  height: 25px;
+  border-radius: 30px;
+  background-color: #0C134F;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  color: white;
+  transition: .6s;
+}
+
+.tech-item:active {
+  /* Styling for the active state of each tech item */
+  font-size: 25px;
+  overflow: visible;
+  color: #000;
+  background: #fff;
+  transition: .3s;
+}
