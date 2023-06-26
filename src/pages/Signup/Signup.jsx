@@ -26,7 +26,6 @@ const Signup = () => {
     formData.password === ""
       ? true
       : false;
-
   useEffect(() => {
     document.body.style.backgroundColor = "#DDE6ED";
     // Clean up the effect
@@ -56,9 +55,9 @@ const Signup = () => {
     return <Navigate to="/" />;
   }
 
-  const usernameError = formData.username.length < 5;
-  const emailError = !validator.isEmail(formData.email);
-  const passwordError = formData.password.length < 8;
+  const usernameError = !isDisabled && formData.username.length < 5;
+  const emailError = !isDisabled && !validator.isEmail(formData.email);
+  const passwordError = !isDisabled && formData.password.length < 8;
   return (
     <div className="">
       <div className="h-[298px] bg-[#27374D] w-screen "></div>
