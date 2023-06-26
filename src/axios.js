@@ -1,9 +1,7 @@
 import axios from "axios";
 
 const instanse = axios.create({
-  baseURL:
-    process.env.REACT_APP_API_URL ||
-    "https://repoappidea-10799cd969fe.herokuapp.com/",
+  baseURL: process.env.REACT_APP_API_URL || "https://repoappidea.onrender.com/",
 });
 
 instanse.interceptors.request.use((config) => {
