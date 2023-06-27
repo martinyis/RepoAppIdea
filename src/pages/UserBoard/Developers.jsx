@@ -5,8 +5,16 @@ import Spinner from "./../../components/ui/Spinner";
 import { Link } from "react-router-dom";
 import Skeleton from "react-loading-skeleton";
 import DeveloperSkeleton from "./DeveloperSkeleton";
+import * as React from 'react';
+import Pagination from '@mui/material/Pagination';
+
 const Developers = () => {
   const [data, setData] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const indexOfLastDeveloper = 12 * currentPage;
+  const indexOfFirstDeveloper = indexOfLastDeveloper - 12;
+  const pageData = data.slice(indexOfFirstDeveloper, indexOfLastDeveloper);
+
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -23,6 +31,10 @@ const Developers = () => {
     fetchData();
   }, []);
 
+  const changePage = (event, page) => {
+    setCurrentPage(page);
+  }
+
   if (isLoading) {
     return (
       <div className="mt-[98px] grid lg:grid-cols-3 grid-cols-1 md:grid-cols-2 gap-y-[45px] gap-x-[19px]">
@@ -38,15 +50,24 @@ const Developers = () => {
     );
   }
   return (
-    <div className="mt-[98px] grid lg:grid-cols-3 grid-cols-1 md:grid-cols-2 gap-y-[45px] gap-x-[19px]">
-      {data.map((el) => {
-        return (
-          // <Link to={`/account/${el._id}`}>
-          //   <Deverloper key={el.id} data={el} />
-          // </Link>
-          <Deverloper key={el.id} data={el} />
-        );
-      })}
+    <div>
+      <div className="mt-[98px] grid lg:grid-cols-3 grid-cols-1 md:grid-cols-2 gap-y-[45px] gap-x-[19px]">
+        {pageData.map((el) => {
+          return (
+            // <Link to={`/account/${el._id}`}>
+            //   <Deverloper key={el.id} data={el} />
+            // </Link>
+            <Deverloper key={el.id} data={el} />
+          );
+        })}
+        {console.log(pageData.length)}
+        </div>
+      <div style={{display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center'}}>
+        <Pagination count={Math.ceil(data.length / 12)} color="secondary"
+        onChange={changePage} />
+      </div>
     </div>
   );
 };
