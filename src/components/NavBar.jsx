@@ -91,7 +91,7 @@ const NavBar = () => {
         />
       ) : (
         <IoIosClose
-          size={40}
+          size={30}
           color="white"
           className="block md:hidden z-10 mr-4"
           onClick={toggleNav}
