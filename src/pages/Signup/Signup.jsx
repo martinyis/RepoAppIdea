@@ -10,11 +10,13 @@ import {
   selectLoading,
 } from "../../redux/slices/auth";
 import validator from "validator";
+import Spinner from "../../components/ui/Spinner";
 
 const Signup = () => {
   const isAuth = useSelector(selectIsAuth);
   const err = useSelector(selectError);
   const dispatch = useDispatch();
+  const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
     username: "",
     email: "",
@@ -43,12 +45,14 @@ const Signup = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    setLoading(true);
     const data = await dispatch(fetchRegister(formData));
     console.log(data);
     if (data.payload !== undefined) {
       localStorage.setItem("id", data.payload.data.user._id);
       localStorage.setItem("token", `Bearer ${data.payload.token}`);
     }
+    setLoading(false);
   };
 
   if (isAuth) {
@@ -114,7 +118,8 @@ const Signup = () => {
               !isDisabled ? "bg-gray-800" : "bg-slate-400"
             }`}
           >
-            Sign up
+            {loading && <Spinner color="#344767" size={25} loading={true} />}
+            {!loading && "Sign up"}
           </button>
         </form>
         <div className="mb-[58px] ">

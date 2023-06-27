@@ -5,10 +5,12 @@ import "./Login.css";
 import { useDispatch, useSelector } from "react-redux";
 import { selectIsAuth, selectError, fetchLogin } from "../../redux/slices/auth";
 import { Navigate } from "react-router-dom";
+import Spinner from "../../components/ui/Spinner";
 const Login = () => {
   const isAuth = useSelector(selectIsAuth);
   const err = useSelector(selectError);
   const dispatch = useDispatch();
+  const [loading, setLoading] = useState(false);
   useEffect(() => {
     document.body.style.backgroundColor = "#DDE6ED";
     // Clean up the effect
@@ -31,12 +33,14 @@ const Login = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    setLoading(true);
     const data = await dispatch(fetchLogin(formData));
     console.log(data);
     if (data.payload !== undefined) {
       localStorage.setItem("id", data.payload.data.user._id);
       localStorage.setItem("token", `Bearer ${data.payload.token}`);
     }
+    setLoading(false);
   };
 
   if (isAuth) {
@@ -73,7 +77,8 @@ const Login = () => {
           />
 
           <button className="h-10 bg-gray-800 rounded-md font-semibold text-sm text-white w-[100%]">
-            Login
+            {loading && <Spinner color="#344767" size={25} loading={true} />}
+            {!loading && "Login"}
           </button>
         </form>
         <div className="mb-[58px] ">
