@@ -30,7 +30,7 @@ const LogSigUp = (props) => {
   return (
     <div>
       {isAuth ? (
-        <div className="md:pl-7 sm:gap-x-12 sm:text-lg max-w-[236px] text-sm flex text-white justify-between items-center gap-x-4">
+        <div className="md:pl-7 sm:gap-x-12 sm:text-xl max-w-[236px] text-sm flex text-white justify-between items-center gap-x-4">
           <button className="hover:text-[#596c81]" onClick={handleLogout}>
             Logout
           </button>
@@ -41,7 +41,7 @@ const LogSigUp = (props) => {
           </Link>
         </div>
       ) : (
-        <div className="md:pl-7 sm:gap-x-12 sm:text-lg max-w-[236px] text-sm flex text-white justify-between items-center gap-x-4">
+        <div className="md:pl-7 sm:gap-x-12 sm:text-xl max-w-[236px] text-sm flex text-white justify-between items-center gap-x-4">
           <Link to="/login" className="hover:text-[#596c81]">
             Login
           </Link>
