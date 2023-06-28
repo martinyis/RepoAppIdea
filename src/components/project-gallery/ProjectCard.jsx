@@ -66,7 +66,7 @@ const ProjectCard = (props) => {
         <div className="scrollable-container overflow-x-auto py-2">
           <div className="scrollable-content whitespace-nowrap flex space-x-4">
             {data.techStack.map((el) => (
-              <div className="tech-item bg-blue-500 text-white px-4 py-2 rounded-full text-xl">{el}</div>
+              <div className="tech-item bg-blue-500 text-white px-4 py-2 rounded-full text-sm">{el}</div>
             ))}
           </div>
         </div>
