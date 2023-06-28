@@ -71,12 +71,3 @@
   color: white;
   transition: 0.6s;
 }
-
-.tech-item:active {
-  /* Styling for the active state of each tech item */
-  font-size: 25px;
-  overflow: visible;
-  color: #000;
-  background: #fff;
-  transition: 0.3s;
-}
