@@ -60,7 +60,16 @@ const authSlice = createSlice({
     payload: null,
     loading: true,
   },
-  reducers: {},
+  reducers: {
+    //setAuthtrue
+    setAuthTrue: (state, action) => {
+      state.isAuth = true;
+    },
+    //set payaload
+    setPayload: (state, action) => {
+      state.payload = action.payload;
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(fetchRegister.fulfilled, (state, action) => {
@@ -107,4 +116,7 @@ export const selectError = (state) => state.auth.error;
 export const selectPayload = (state) => state.auth.payload;
 export const selectLoading = (state) => state.auth.loading;
 
+//.export setAuthTrue
+export const { setAuthTrue } = authSlice.actions;
+export const { setPayload } = authSlice.actions;
 export const authReducer = authSlice.reducer;

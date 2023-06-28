@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import NavBar from "../../components/NavBar";
 import { Link, Navigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
+import GoogleLog from "./../../pages/Login/GoogleLog";
 import "./Signup.css";
 import {
   fetchRegister,
@@ -116,6 +117,7 @@ const Signup = () => {
           >
             Sign up
           </button>
+          <GoogleLog text="Sign up with Google" />
         </form>
         <div className="mb-[58px] ">
           <p className="text-sm text-black font-open-sans text-center font-bold mb-[10px]">
