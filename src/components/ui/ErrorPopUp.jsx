@@ -4,7 +4,7 @@ const ErrorPopUp = (props) => {
     handleTryAgain();
   };
   return (
-    <div className="absolute top-[200px] md:w-[50%] w-[80%] sm:h-[50%] h-[70%] bg-[#ffffff] text-[#ff0000] rounded-[50px] flex flex-col items-center justify-center gap-[80px] py-10">
+    <div className="absolute top-[200px] md:w-[50%] w-[80%] sm:h-[50%] h-[70%] bg-[#ffffff] text-[#ff0000] rounded-[50px] flex flex-col items-center justify-center gap-[80px] py-10 z-10">
       <div className="text-2xl px-8 text-center">{error}</div>
       <button
         onClick={handleClick}

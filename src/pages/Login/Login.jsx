@@ -5,6 +5,7 @@ import "./Login.css";
 import { useDispatch, useSelector } from "react-redux";
 import { selectIsAuth, selectError, fetchLogin } from "../../redux/slices/auth";
 import { Navigate } from "react-router-dom";
+import GoogleLog from "./GoogleLog";
 const Login = () => {
   const isAuth = useSelector(selectIsAuth);
   const err = useSelector(selectError);
@@ -75,6 +76,7 @@ const Login = () => {
           <button className="h-10 bg-gray-800 rounded-md font-semibold text-sm text-white w-[100%]">
             Login
           </button>
+          <GoogleLog text={"Login with Google"} />
         </form>
         <div className="mb-[58px] ">
           <p className="text-sm text-black font-open-sans text-center mb-[58px] font-bold">
