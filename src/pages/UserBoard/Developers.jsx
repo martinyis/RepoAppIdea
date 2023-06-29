@@ -7,6 +7,7 @@ import Skeleton from "react-loading-skeleton";
 import DeveloperSkeleton from "./DeveloperSkeleton";
 import * as React from 'react';
 import Pagination from '@mui/material/Pagination';
+import { createTheme, ThemeProvider } from '@mui/material';
 
 const Developers = () => {
   const [data, setData] = useState([]);
@@ -16,6 +17,27 @@ const Developers = () => {
   const pageData = data.slice(indexOfFirstDeveloper, indexOfLastDeveloper);
 
   const [isLoading, setIsLoading] = useState(true);
+
+  const customStyles = {
+    '& .MuiPaginationItem-root': {
+      color: '#ffffff'
+    },
+    '& .Mui-selected': {
+      color: '#000000',
+    }
+  };
+
+  const theme = createTheme({
+    status: {
+      danger: '#e53e3e',
+    },
+    palette: {
+      primary: {
+        main: '#dfe6ed',
+        contrastText: '#000000',
+      }
+    }
+  });
 
   useEffect(() => {
     const fetchData = async () => {
@@ -33,6 +55,9 @@ const Developers = () => {
 
   const changePage = (event, page) => {
     setCurrentPage(page);
+    window.requestAnimationFrame(() => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
   }
 
   if (isLoading) {
@@ -64,9 +89,12 @@ const Developers = () => {
         </div>
       <div style={{display: 'flex',
             justifyContent: 'center',
-            alignItems: 'center'}}>
-        <Pagination count={Math.ceil(data.length / 12)} color="secondary"
-        onChange={changePage} />
+            alignItems: 'center',
+            marginTop: 20}}>
+        <ThemeProvider theme={theme}>      
+          <Pagination count={Math.ceil(data.length / 12)} color="primary"
+          onChange={changePage} sx={customStyles} />
+        </ThemeProvider>
       </div>
     </div>
   );
