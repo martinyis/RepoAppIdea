@@ -31,17 +31,17 @@ const NavBar = () => {
 
   const logoSrc = windowWidth < 768 ? smallLogo : logo;
 
-  useEffect(() => {
-    const body = document.querySelector("body");
-    if (navOpen) {
-      body.style.overflow = "hidden";
-    } else {
-      body.style.overflow = "auto";
-    }
-  }, [navOpen]);
+  // useEffect(() => {
+  //   const body = document.querySelector("body");
+  //   if (navOpen) {
+  //     body.style.overflow = "hidden";
+  //   } else {
+  //     body.style.overflow = "auto";
+  //   }
+  // }, [navOpen]);
 
   return (
-    <div className="mx-auto flex justify-between pt-[24px] items-center mr-0 ml-0">
+    <div className="mx-auto flex justify-between pt-[24px] items-center mr-0 ml-0 ">
       <Link to="/">
         <div className="">
           <img src={logoSrc} alt="Logo" className="" />
@@ -82,21 +82,38 @@ const NavBar = () => {
           </Link>
         </li>
       </ul>
-      {!navOpen ? (
+
+      <div width="200">
         <HiBars3
           size={30}
           color="white"
           className="block md:hidden z-10 mr-4"
           onClick={toggleNav}
+          style={{
+            transition: "1s",
+            opacity: navOpen ? 0 : 1,
+            width: navOpen ? 0 : 40,
+            position: "absolute",
+            top: 48,
+            right: 8,
+          }}
         />
-      ) : (
+
         <IoIosClose
           size={30}
           color="white"
           className="block md:hidden z-10 mr-4"
           onClick={toggleNav}
+          style={{
+            transition: "1s",
+            opacity: navOpen ? 1 : 0,
+            width: navOpen ? 40 : 0,
+            position: "absolute",
+            top: 48,
+            right: 8,
+          }}
         />
-      )}
+      </div>
     </div>
   );
 };
