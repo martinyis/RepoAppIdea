@@ -23,7 +23,7 @@ const Deverloper = (props) => {
           </Link>
         </div>
         <div className="flex flex-col gap-[15px]">
-          {/* <div className="flex items-center justify-center bg-[#F5D9B4] rounded-[93px] w-[158px] h-[27px]">
+          <div className="flex items-center justify-center bg-[#F5D9B4] rounded-[93px] w-[158px] h-[27px]">
             <p className="text-[12px] text-[#27374D] font-normal">
               {data.position}
             </p>
@@ -45,13 +45,13 @@ const Deverloper = (props) => {
                 LinkedIn  
               </a>
             </div>
-          </div> */}
+          </div>
           <p className="max-w-[250px] text-[12px] text-white text-opacity-60">
             {data.description}
           </p>
         </div>
       </div>
-      {/* <div className="h-[30px]  bg-[#DDE6ED] rounded-tl-[0px] rounded-tr-[0px] rounded-bl-[32px] rounded-br-[32px] mt-[15px]  flex items-center justify-center absolute bottom-0 w-[100%]">
+      <div className="h-[30px]  bg-[#DDE6ED] rounded-tl-[0px] rounded-tr-[0px] rounded-bl-[32px] rounded-br-[32px] mt-[15px]  flex items-center justify-center absolute bottom-0 w-[100%]">
         <div className="scrollbar flex gap-x-4 max-w-[395px] overflow-x-auto">
           {data.techStack.map((el) => {
             return (
@@ -63,7 +63,7 @@ const Deverloper = (props) => {
             );
           })}
         </div>
-      </div> */}
+      </div>
     </div>
   );
 };
