@@ -7,6 +7,7 @@ import { selectIsAuth } from "../redux/slices/auth";
 import LogSigUp from "./ui/LogSigUp";
 import logo from "./../assets/logos/repoapp-logo.png";
 import smallLogo from "./../assets/logos/repo-app-small.png";
+import { Squash as Hamburger } from 'hamburger-react';
 
 const NavBar = () => {
   const [navOpen, setNavOpen] = useState(false);
@@ -21,7 +22,6 @@ const NavBar = () => {
     const handleResize = () => {
       setWindowWidth(window.innerWidth);
     };
-
     window.addEventListener("resize", handleResize);
 
     return () => {
@@ -62,8 +62,8 @@ const NavBar = () => {
 
       <LogSigUp isAuth={isAuth} />
       <ul
-        className={`absolute top-0 left-1/2 transform -translate-x-1/2 transition-all duration-300 text-white flex flex-col text-[25px] gap-y-[75px] bg-[#526D82] w-[100%] items-center h-screen ${
-          navOpen ? "translate-y-0" : "-translate-y-full"
+        className={`absolute top-0 right-0 transform -translate-x-1/2 transition-all duration-300 text-white flex flex-col text-[25px] gap-y-[75px] bg-[#526D82] w-[225px] items-center h-screen ${
+          navOpen ? "translate-x-0" : "translate-x-[100%]"
         }`}
       >
         <li className="pt-[100px]">
@@ -82,7 +82,7 @@ const NavBar = () => {
           </Link>
         </li>
       </ul>
-      {!navOpen ? (
+      {/* {!navOpen ? (
         <HiBars3
           size={30}
           color="white"
@@ -91,12 +91,17 @@ const NavBar = () => {
         />
       ) : (
         <IoIosClose
-          size={40}
+          size={50}
           color="white"
           className="block md:hidden z-10 mr-4"
           onClick={toggleNav}
         />
-      )}
+      )} */}
+      {
+        <div className="block md:hidden z-10 mr-4">
+          <Hamburger toggled={navOpen} toggle={toggleNav} duration={0.3} easing="ease-in"/>
+        </div>
+      }
     </div>
   );
 };
