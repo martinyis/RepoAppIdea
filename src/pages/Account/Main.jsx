@@ -87,7 +87,7 @@ const Main = (props) => {
             ""
           )}
         </div>
-        <div className="flex flex-col gap-y-[58px] lg:mr-[120px] mr-0">
+        <div className="flex flex-col basis-1/2 gap-y-[58px] lg:mr-[120px] mr-0">
           {projects.map((el) => (
             <ProjectCard key={el.id} data={el} />
           ))}
