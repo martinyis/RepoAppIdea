@@ -7,6 +7,7 @@ import { selectIsAuth } from "../redux/slices/auth";
 import LogSigUp from "./ui/LogSigUp";
 import logo from "./../assets/logos/repoapp-logo.png";
 import smallLogo from "./../assets/logos/repo-app-small.png";
+import { Squash as Hamburger } from 'hamburger-react';
 
 const NavBar = () => {
   const [navOpen, setNavOpen] = useState(false);
@@ -21,7 +22,6 @@ const NavBar = () => {
     const handleResize = () => {
       setWindowWidth(window.innerWidth);
     };
-
     window.addEventListener("resize", handleResize);
 
     return () => {
@@ -82,7 +82,7 @@ const NavBar = () => {
           </Link>
         </li>
       </ul>
-      {!navOpen ? (
+      {/* {!navOpen ? (
         <HiBars3
           size={30}
           color="white"
@@ -91,12 +91,17 @@ const NavBar = () => {
         />
       ) : (
         <IoIosClose
-          size={40}
+          size={50}
           color="white"
           className="block md:hidden z-10 mr-4"
           onClick={toggleNav}
         />
-      )}
+      )} */}
+      {
+        <div className="block md:hidden z-10 mr-4">
+          <Hamburger toggled={navOpen} toggle={toggleNav} duration={0.3} easing="ease-in"/>
+        </div>
+      }
     </div>
   );
 };
