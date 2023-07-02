@@ -7,7 +7,7 @@ import { selectIsAuth } from "../redux/slices/auth";
 import LogSigUp from "./ui/LogSigUp";
 import logo from "./../assets/logos/repoapp-logo.png";
 import smallLogo from "./../assets/logos/repo-app-small.png";
-import { Squash as Hamburger } from 'hamburger-react';
+import { Squash as Hamburger } from "hamburger-react";
 
 const NavBar = () => {
   const [navOpen, setNavOpen] = useState(false);
@@ -41,7 +41,7 @@ const NavBar = () => {
   }, [navOpen]);
 
   return (
-    <div className="mx-auto flex justify-between pt-[24px] items-center mr-0 ml-0">
+    <div className="mx-auto flex justify-around pt-[24px] items-center mr-0 ml-0">
       <Link to="/">
         <div className="">
           <img src={logoSrc} alt="Logo" className="" />
@@ -99,7 +99,12 @@ const NavBar = () => {
       )} */}
       {
         <div className="block md:hidden z-10 mr-4">
-          <Hamburger toggled={navOpen} toggle={toggleNav} duration={0.3} easing="ease-in"/>
+          <Hamburger
+            toggled={navOpen}
+            toggle={toggleNav}
+            duration={0.3}
+            easing="ease-in"
+          />
         </div>
       }
     </div>
