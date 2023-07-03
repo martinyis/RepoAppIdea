@@ -137,9 +137,11 @@ Follow the steps below to install and set up the project:
 
 See the [open issues](https://github.com/martinyis/RepoAppIdea/issues) for a list of proposed features (and known issues).
 
-## License
+## Contributors 🤝
 
-Distributed under the MIT License. See [LICENSE](https://github.com/martinyis/RepoAppIdea/LICENSE.md) for more information.
+<a href="https://github.com/martinyis/RepoAppIdea/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=martinyis/RepoAppIdea" />
+</a>
 
 ## Authors
 
