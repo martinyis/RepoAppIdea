@@ -21,9 +21,11 @@ const Footer = () => {
   }, []);
   return (
     <div className=" flex flex-col items-center justify-center mb-[64px] absolute bottom-0 w-[100%]  left-1/2 transform -translate-x-1/2">
-      <div className="pb-4">
-        <img src={logoSrc} alt="" />
-      </div>
+      <Link to="/" onClick={() => window.scrollTo(0, 0)}>
+        <div className="pb-4">
+          <img src={logoSrc} alt="" />
+        </div>
+      </Link>
       <ul className="flex flex-col xs:flex-row justify-center gap-y-5 items-center gap-x-10 text-base text-[#F5F5F5] pb-10">
         <li>
           <a href="/">About</a>
