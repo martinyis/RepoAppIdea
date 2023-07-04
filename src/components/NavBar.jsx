@@ -62,7 +62,7 @@ const NavBar = () => {
 
       <LogSigUp isAuth={isAuth} />
       <ul
-        className={`absolute top-0 left-1/2 transform -translate-x-1/2 transition-all duration-300 text-white flex flex-col text-[25px] gap-y-[75px] bg-[#526D82] w-[100%] items-center h-screen ${
+        className={`absolute top-0 left-1/2 transform -translate-x-1/2 transition-all duration-300 text-white flex flex-col text-[25px] gap-y-[75px] bg-[#526D82] w-[100%] items-center h-screen z-10 ${
           navOpen ? "translate-y-0" : "-translate-y-full"
         }`}
       >
