@@ -1,12 +1,11 @@
-import React, { useState, useEffect } from "react";
 import GoogleLogin from "react-google-login";
 import axios from "./../../axios";
 import { isEmpty } from "lodash";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { setAuthTrue } from "../../redux/slices/auth";
 import { setPayload } from "../../redux/slices/auth";
-function App(props) {
-  const { text } = props;
+
+function App({ text }) {
   const dispatch = useDispatch();
   const responseGoogle = async (response) => {
     const bodyObject = {
@@ -23,7 +22,7 @@ function App(props) {
         }
       }
     } catch (e) {
-      console.log(e);
+      console.error(e);
     }
   };
 

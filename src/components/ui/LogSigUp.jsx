@@ -2,20 +2,21 @@ import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { selectPayload } from "../../redux/slices/auth";
 import { useEffect } from "react";
-const LogSigUp = (props) => {
+
+const LogSigUp = ({ isAuth }) => {
   //useSelector
   const user = useSelector(selectPayload);
   const username = user?.data.user.username;
-  const { isAuth } = props;
 
   const handleLogout = () => {
+    localStorage.removeItem("userToken");
     localStorage.removeItem("token");
     localStorage.removeItem("id");
     window.location.reload();
   };
   useEffect(() => {
     console.log(user);
-  }, []);
+  });
   const id = localStorage.getItem("id");
 
   // handles long username

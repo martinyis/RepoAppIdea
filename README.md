@@ -79,7 +79,7 @@ The following section provides detailed explanations on how to set up the projec
 
 Before getting started, make sure you have the following prerequisites:
 
-- [Node.js](https://nodejs.org) installed
+- [Node.js](https://nodejs.org) v16.x.x or higher installed
 - [Git](https://git-scm.com) installed
 - [npm](https://www.npmjs.com) (Node Package Manager) installed
 - A code editor such as [Visual Studio Code](https://code.visualstudio.com) or any other preferred code environment

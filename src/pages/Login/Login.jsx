@@ -1,15 +1,16 @@
-import React, { useEffect, useState } from "react";
-import NavBar from "../../components/NavBar";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "./Login.css";
 import { useDispatch, useSelector } from "react-redux";
 import { selectIsAuth, selectError, fetchLogin } from "../../redux/slices/auth";
 import { Navigate } from "react-router-dom";
 import GoogleLog from "./GoogleLog";
+
 const Login = () => {
   const isAuth = useSelector(selectIsAuth);
   const err = useSelector(selectError);
   const dispatch = useDispatch();
+
   useEffect(() => {
     document.body.style.backgroundColor = "#DDE6ED";
     // Clean up the effect

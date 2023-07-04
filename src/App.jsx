@@ -6,17 +6,20 @@ import Login from "./pages/Login/Login";
 import Projects from "./pages/Projects/Projects";
 import Signup from "./pages/Signup/Signup";
 import UserBoard from "./pages/UserBoard/UserBoard";
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { fetchMe } from "./redux/slices/auth";
 import { useEffect } from "react";
 import { gapi } from "gapi-script";
+
 function App() {
   const dispatch = useDispatch();
   const clientId = process.env.REACT_APP_CLIENT_ID || undefined;
+
   const fetchData = async () => {
-    const data = await dispatch(fetchMe());
+    await dispatch(fetchMe());
   };
+
   useEffect(() => {
     function start() {
       gapi.client.init({
@@ -25,8 +28,10 @@ function App() {
       });
     }
     gapi.load("client:auth2", start);
-    fetchData();
-  }, []);
+
+    if(localStorage.getItem('token'))  
+      fetchData();
+  });
 
   return (
     <div className="">
