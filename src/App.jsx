@@ -12,11 +12,7 @@ import { fetchMe } from "./redux/slices/auth";
 import { useEffect } from "react";
 import { gapi } from "gapi-script";
 function App() {
-  const dispatch = useDispatch();
   const clientId = process.env.REACT_APP_CLIENT_ID || undefined;
-  const fetchData = async () => {
-    const data = await dispatch(fetchMe());
-  };
   useEffect(() => {
     function start() {
       gapi.client.init({
@@ -25,7 +21,6 @@ function App() {
       });
     }
     gapi.load("client:auth2", start);
-    fetchData();
   }, []);
 
   return (

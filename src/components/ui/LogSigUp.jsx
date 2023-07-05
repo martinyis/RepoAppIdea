@@ -2,20 +2,18 @@ import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { selectPayload } from "../../redux/slices/auth";
 import { useEffect } from "react";
-const LogSigUp = (props) => {
-  //useSelector
-  const user = useSelector(selectPayload);
-  const username = user?.data.user.username;
-  const { isAuth } = props;
+const LogSigUp = ({ user }) => {
+  //get username if it's a user
+  const username = user && user.data?.user.username;
 
   const handleLogout = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("id");
+
+    //remove user
+    localStorage.removeItem("userInfo");
     window.location.reload();
   };
-  useEffect(() => {
-    console.log(user);
-  }, []);
   const id = localStorage.getItem("id");
 
   // handles long username
@@ -29,7 +27,7 @@ const LogSigUp = (props) => {
 
   return (
     <div>
-      {isAuth ? (
+      {user ? (
         <div className="md:pl-7 sm:gap-x-12 sm:text-lg max-w-[236px] text-sm flex text-white justify-between items-center gap-x-4">
           <button className="hover:text-[#596c81]" onClick={handleLogout}>
             Logout

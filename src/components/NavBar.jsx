@@ -3,15 +3,16 @@ import { Link } from "react-router-dom";
 import { HiBars3 } from "react-icons/hi2";
 import { IoIosClose } from "react-icons/io";
 import { useSelector } from "react-redux";
-import { selectIsAuth } from "../redux/slices/auth";
+import { selectPayload } from "../redux/slices/auth";
 import LogSigUp from "./ui/LogSigUp";
 import logo from "./../assets/logos/repoapp-logo.png";
 import smallLogo from "./../assets/logos/repo-app-small.png";
-import { Squash as Hamburger } from 'hamburger-react';
+import { Squash as Hamburger } from "hamburger-react";
 
 const NavBar = () => {
   const [navOpen, setNavOpen] = useState(false);
-  const isAuth = useSelector(selectIsAuth);
+  const userInfo = useSelector(selectPayload);
+
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
   const toggleNav = () => {
@@ -60,7 +61,7 @@ const NavBar = () => {
         </li>
       </ul>
 
-      <LogSigUp isAuth={isAuth} />
+      <LogSigUp user={userInfo} />
       <ul
         className={`absolute top-0 left-1/2 transform -translate-x-1/2 transition-all duration-300 text-white flex flex-col text-[25px] gap-y-[75px] bg-[#526D82] w-[100%] items-center h-screen z-10 ${
           navOpen ? "translate-y-0" : "-translate-y-full"
@@ -99,7 +100,12 @@ const NavBar = () => {
       )} */}
       {
         <div className="block md:hidden z-10 mr-4">
-          <Hamburger toggled={navOpen} toggle={toggleNav} duration={0.3} easing="ease-in"/>
+          <Hamburger
+            toggled={navOpen}
+            toggle={toggleNav}
+            duration={0.3}
+            easing="ease-in"
+          />
         </div>
       }
     </div>

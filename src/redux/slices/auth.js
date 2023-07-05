@@ -1,11 +1,21 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "./../../axios.js";
+
+//localstorage  instead of fetchdata function in App.jsx on every render
+// check if it's a user in localstorage
+const userInfoFromStorage = localStorage.getItem("userInfo")
+  ? JSON.parse(localStorage.getItem("userInfo"))
+  : null;
+
 export const fetchRegister = createAsyncThunk(
   "/auth/fetchRegister",
   async (formData) => {
     try {
-      const response = await axios.post("/api/v1/users/signup", formData);
-      return response.data;
+      const { data } = await axios.post("/api/v1/users/signup", formData);
+      if (data) {
+        localStorage.setItem("userInfo", JSON.stringify(data));
+      }
+      return data;
     } catch (error) {
       if (
         error.response &&
@@ -36,8 +46,11 @@ export const fetchLogin = createAsyncThunk(
   "/auth/fetchLogin",
   async (formData) => {
     try {
-      const response = await axios.post("/api/v1/users/login", formData);
-      return response.data;
+      const { data } = await axios.post("/api/v1/users/login", formData);
+      if (data) {
+        localStorage.setItem("userInfo", JSON.stringify(data));
+      }
+      return data;
     } catch (error) {
       if (
         error.response &&
@@ -57,7 +70,7 @@ const authSlice = createSlice({
   initialState: {
     isAuth: false,
     error: null,
-    payload: null,
+    payload: userInfoFromStorage,
     loading: true,
   },
   reducers: {
