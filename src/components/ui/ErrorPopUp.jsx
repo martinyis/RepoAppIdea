@@ -1,4 +1,4 @@
-import bgImg from "C:/Users/kusha/Desktop/Open Source Prjects/RepoAppIdea/src/assets/how-it-works-simplifying-data-transfer@2x.png"
+import bgImg from "./../../assets/how-it-works-simplifying-data-transfer@2x.png";
 
 const ErrorPopUp = (props) => {
   const { error, handleTryAgain } = props;
@@ -8,13 +8,13 @@ const ErrorPopUp = (props) => {
 
 
   return (
-    <div className="absolute top-[200px] md:w-[50%] w-[80%] sm:h-[50%] h-[70%] bg-[#ffffff] text-[#ff0000] rounded-[50px] flex md:flex-row flex-col items-center justify-center gap-[80px] py-20 z-10"
+    <div className="absolute top-[200px] md:w-[50%] w-[80%] sm:h-[50%] h-[70%] bg-[#ffffff] text-[#ff0000] rounded-[50px] flex sm:flex-row flex-col items-center justify-center gap-[80px] py-20 z-10"
       style={{ padding: "20px", gap: "10px" }}
     >
-      <img className="md:h-[95%] h-[70%]" src={bgImg} style={{ objectFit: "cover" }} alt="" srcset="" />
+      <img className="xl:h-[95%] lg:h-[80%] md:h-[60%] h-[40%]" src={bgImg} style={{ objectFit: "cover" }} alt="" srcset="" />
       <div style={{ textAlign: "center" }}>
         <h1 style={{ fontSize: "4rem", color: "#334c6f", fontWeight: "bold" }}>Oops!</h1>
-        <div className="text-2xl text-center">{error}</div>
+        <div className="text-sm lg:text-md xl:text-lg text-center">It looks pretty good but you need to change the path to reletive, below is a picture and work a bit on responsivness. But overall it is very nice, i like it. As soon as you fix path and reponsivness I am merging this pr</div>
         <button
           onClick={handleClick}
           style={{
