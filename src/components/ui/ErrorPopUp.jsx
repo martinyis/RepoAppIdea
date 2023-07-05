@@ -14,7 +14,7 @@ const ErrorPopUp = (props) => {
       <img className="xl:h-[95%] lg:h-[80%] md:h-[60%] h-[40%]" src={bgImg} style={{ objectFit: "cover" }} alt="" srcset="" />
       <div style={{ textAlign: "center" }}>
         <h1 style={{ fontSize: "4rem", color: "#334c6f", fontWeight: "bold" }}>Oops!</h1>
-        <div className="text-sm lg:text-md xl:text-lg text-center">It looks pretty good but you need to change the path to reletive, below is a picture and work a bit on responsivness. But overall it is very nice, i like it. As soon as you fix path and reponsivness I am merging this pr</div>
+        <div className="text-sm lg:text-md xl:text-lg text-center">{error}</div>
         <button
           onClick={handleClick}
           style={{
