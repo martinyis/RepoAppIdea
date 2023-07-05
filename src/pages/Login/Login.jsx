@@ -78,14 +78,14 @@ const Login = () => {
           </button>
           <GoogleLog text={"Login with Google"} />
         </form>
-        <div className="mb-[58px] ">
-          <p className="text-sm text-black font-open-sans text-center mb-[58px] font-bold">
+        <div className="mb-[32px] flex flex-col items-center">
+          <p className="text-sm text-black font-open-sans text-center mb-[32px] font-bold">
             Don't have an account?{" "}
             <span className="font-bold boldFont">
               <Link to="/signup">Create an account</Link>
             </span>
           </p>
-          <p className="text-[#FF0000] max-w-[442px] text-left px-[51px]">
+          <p className="text-[#FF0000] text-sm text-center max-w-[442px] px-[51px]">
             {err}
           </p>
         </div>
