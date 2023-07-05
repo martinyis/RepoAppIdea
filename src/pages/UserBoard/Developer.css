@@ -10,7 +10,7 @@
 }
 
 .scrollbar::-webkit-scrollbar-track {
-  background-color: #f1f1f1;
+  background-color: transparent;
   width: 15px;
 }
 

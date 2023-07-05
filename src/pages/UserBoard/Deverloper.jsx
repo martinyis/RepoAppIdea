@@ -7,6 +7,7 @@ const Deverloper = (props) => {
     data.avatarUrl === "https://www.example-nonexistent-link.com"
       ? DefaultAvatar
       : data.avatarUrl;
+
   return (
     <div className="bg-[#5D6C7D] rounded-[32px] relative">
       <div className="pt-[16px] px-[28px] flex gap-4 custom:flex-row flex-col pb-[30px]">
@@ -42,20 +43,21 @@ const Deverloper = (props) => {
                 href={data.linkedinLink}
                 className="text-[#EEEEEE] text-[12px] font-regular"
               >
-                LinkedIn  
+                LinkedIn
               </a>
             </div>
           </div>
-          <p className="max-w-[250px] text-[12px] text-white text-opacity-60">
+          <p className="max-w-[250px] text-[12px] h-[100px] scrollbar overflow-y-auto text-white text-opacity-60">
             {data.description}
           </p>
         </div>
       </div>
-      <div className="h-[30px]  bg-[#DDE6ED] rounded-tl-[0px] rounded-tr-[0px] rounded-bl-[32px] rounded-br-[32px] mt-[15px]  flex items-center justify-center absolute bottom-0 w-[100%]">
-        <div className="scrollbar flex gap-x-4 max-w-[395px] overflow-x-auto">
-          {data.techStack.map((el) => {
+      <div className="h-[30px]  bg-[#DDE6ED] rounded-tl-[0px] rounded-tr-[0px] rounded-bl-[32px] rounded-br-[32px] mt-[15px] flex items-center justify-center absolute bottom-0 w-[100%] overflow-x-hidden">
+        <div className="scrollbar flex gap-x-4 max-w-[90%] py-[3px]">
+          {data.techStack.map((el, index) => {
             return (
               <div
+                key={index}
                 className={`w-[71px] sm:min-w-[71px] min-w-[51px] h-[13px] rounded-[30px] bg-[#D4ADFC] flex items-center justify-center text-[8px] `}
               >
                 {el}

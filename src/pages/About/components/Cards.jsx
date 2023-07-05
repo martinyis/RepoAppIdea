@@ -46,7 +46,7 @@ const Cards = () => {
             <h2 className="lg:text-2xl md:text-lg sm:text-sm xs:text-md font-bold text-center text-[#DDE6ED]">
               {card.title}
             </h2>
-            <p className="lg:text-lg xs:text-sm text-center text-[#DDE6ED]">
+            <p className="lg:text-base xs:text-sm text-center text-[#DDE6ED] px-5">
               {card.body}
             </p>
           </div>
