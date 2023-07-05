@@ -47,7 +47,7 @@ const Deverloper = (props) => {
               </a>
             </div>
           </div>
-          <p className="max-w-[250px] text-[12px] text-white text-opacity-60">
+          <p className="max-w-[250px] text-[12px] h-[100px] scrollbar overflow-y-auto text-white text-opacity-60">
             {data.description}
           </p>
         </div>
