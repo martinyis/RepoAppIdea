@@ -5,19 +5,17 @@
 }
 
 .scrollbar::-webkit-scrollbar {
-  width: 15px;
+  width: 8px;
   height: 8px;
 }
 
 .scrollbar::-webkit-scrollbar-track {
   background-color: transparent;
-  width: 15px;
 }
 
 .scrollbar::-webkit-scrollbar-thumb {
   background-color: gray;
   border-radius: 4px;
-  width: 12px;
 }
 
 .scrollbar::-webkit-scrollbar-thumb:hover {
