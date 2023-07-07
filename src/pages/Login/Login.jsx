@@ -6,10 +6,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { selectIsAuth, selectError, fetchLogin } from "../../redux/slices/auth";
 import { Navigate } from "react-router-dom";
 import GoogleLog from "./GoogleLog";
+import Spinner from "../../components/ui/Spinner";
+
 const Login = () => {
   const isAuth = useSelector(selectIsAuth);
   const err = useSelector(selectError);
   const dispatch = useDispatch();
+  const [isLoading, setIsLoading] = useState(false);
   useEffect(() => {
     document.body.style.backgroundColor = "#DDE6ED";
     // Clean up the effect
@@ -32,7 +35,9 @@ const Login = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    setIsLoading(true);
     const data = await dispatch(fetchLogin(formData));
+    setIsLoading(false);
     console.log(data);
     if (data.payload !== undefined) {
       localStorage.setItem("id", data.payload.data.user._id);
@@ -74,13 +79,22 @@ const Login = () => {
           />
 
           <button className="h-10 bg-gray-800 rounded-md font-semibold text-sm text-white w-[100%]">
-            Login
+            {isLoading ? (
+              <Spinner
+                color="white"
+                size="10"
+                loading={isLoading}
+                styles="flex items-center justify-center"
+              />
+            ) : (
+              "Login"
+            )}
           </button>
           <GoogleLog text={"Login with Google"} />
         </form>
         <div className="mb-[32px] flex flex-col items-center">
           <p className="text-sm text-black font-open-sans text-center mb-[32px] font-bold">
-            Don't have an account?{" "}
+            Don"t have an account?{" "}
             <span className="font-bold boldFont">
               <Link to="/signup">Create an account</Link>
             </span>
