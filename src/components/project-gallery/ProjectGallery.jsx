@@ -37,7 +37,7 @@ const ProjectGallery = () => {
       <div className="flex justify-end">
         {isAuth ? (
           <Link to="/create-project">
-            <button className="font-thin text-2xl leading-7 text-white border border-solid border-blue-200 rounded-[35px] w-64 h-16 mb-[29px] hover:bg-[#dfe6ed] hover:text-[#27374d] hover:border-[#dfe6ed] hover:scale-110 transition-colors duration-300">
+            <button className="font-thin text-2xl leading-7 text-white border border-solid border-blue-200 rounded-[35px] w-64 h-16 mb-[29px] hover:bg-[#dfe6ed] hover:text-[#27374d] hover:border-[#dfe6ed] hover:scale-110 transition-all duration-300 ease-in-out transition-colors duration-300">
               Add Project
             </button>
           </Link>
