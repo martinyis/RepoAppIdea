@@ -17,12 +17,19 @@ const ProjectCard = (props) => {
   const handleMouseLeave = () => {
     setIsHovered(false);
   };
+  
+  const handleClick = (event) => {
+    console.log(event.target.tagName);
+    if (!["a", "img", "button"].includes(event.target.tagName.toLowerCase())) {
+      window.location.href = data.githubLink;
+    }
+  }
   return (
-    <Link to={data.githubLink}>
       <div
-        className=" bg-blue-200 bg-opacity-30 rounded-28 rounded-[28px] hover:scale-105 transition-all duration-300 ease-in-out cursor-pointer relative "
+        className="bg-blue-200 bg-opacity-30 rounded-28 rounded-[28px] hover:scale-105 transition-all duration-300 ease-in-out cursor-pointer relative"
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
+        onClick={handleClick}
       >
         <div
           className={`px-6 ${isMobile ? "flex flex-col" : "flex justify-between"
@@ -72,9 +79,7 @@ const ProjectCard = (props) => {
             </div>
           </div>
         </div>
-
       </div>
-    </Link>
   );
 };
 
