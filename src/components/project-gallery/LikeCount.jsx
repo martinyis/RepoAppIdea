@@ -16,7 +16,8 @@ const LikeCount = ({ data }) => {
     setLikeCount(data.usersLiked.length);
   }, [data.usersLiked]);
 
-  const handleLike = () => {
+  const handleLike = (event) => {
+    event.preventDefault();
     if (!isAuth) return;
 
     setIsLiked(!isLiked);
@@ -35,7 +36,7 @@ const LikeCount = ({ data }) => {
   const starIconSrc = isLiked ? fillStarIcon : starIcon;
 
   return (
-    <div className="flex gap-x-2 items-center justify-center">
+    <div className="flex gap-x-2 items-center justify-center z-5">
       <img
         onClick={handleLike}
         className="mt-[-3px] cursor-pointer"
