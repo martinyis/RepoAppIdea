@@ -78,16 +78,20 @@ const CreateForm = () => {
           onSubmit={handleSubmit}
           className="w-[100%] flex flex-col gap-y-[30px]"
         >
+          <label htmlFor="name">Repo Name</label>
           <input
             type="text"
+            id="name"
             name="name"
             placeholder="Repo Name"
             value={formValues.repoName}
             onChange={handleInputChange}
             className="md:w-[60%] w-[100%] sm:w-[80%] h-[36px] flex items-center pl-[25px] border border-gray-200 rounded-[68px] text-[14px] bg-blue-200 bg-opacity-50 bg-transparent mx-auto outline-none focus:ring-0 focus:border-blue-200"
           />
+          <label htmlFor="githubLink">GitHub Link</label>
           <input
             type="text"
+            id="githubLink"
             name="githubLink"
             placeholder="GitHub Link"
             value={formValues.githubLink}
@@ -95,8 +99,10 @@ const CreateForm = () => {
             className="md:w-[60%] w-[100%] sm:w-[80%] h-[36px] flex items-center pl-[25px] border border-gray-200 rounded-[68px] text-[14px] bg-blue-200 bg-opacity-50 bg-transparent mx-auto outline-none focus:ring-0 focus:border-blue-200"
           />
           <div className="md:w-[60%] w-[100%] sm:w-[80%] mx-auto relative">
+            <label htmlFor="description">Description</label>
             <textarea
               type="text"
+              id="description"
               name="description"
               placeholder="Description"
               value={formValues.description}
@@ -105,7 +111,7 @@ const CreateForm = () => {
               maxLength={700}
             />
             <p className="absolute top-2 right-10 text-[14px] text-[#EEEEEE] ">
-              {remainingCharacters + " /" + "700"}
+              {remainingCharacters + " /700"}
             </p>
           </div>
           <TechStack getStack={getStack} variant={1} />
