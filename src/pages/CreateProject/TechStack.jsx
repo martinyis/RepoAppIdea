@@ -30,13 +30,15 @@ const TechStack = (props) => {
         onSubmit={handleStackSubmit}
         className="flex md:w-[60%] w-[100%] sm:w-[80%] mx-auto items-center justify-start gap-x-[20px] mb-[20px]"
       >
+        
         <input
           type="text"
           placeholder={variant == 1 ? "Tech Stack" : "Developers Needed"}
           value={lastInputValue}
           onChange={handleLastInputChange}
-          className="h-[36px] w-[80%] flex items-center pl-[25px] border border-gray-200 rounded-[68px] text-[14px] bg-blue-200 bg-opacity-50 bg-transparent outline-none focus:ring-0 focus:border-blue-200"
+          className="h-[36px] w-[90%] flex items-center pl-[25px] border border-gray-200 rounded-[68px] text-[14px] bg-blue-200 bg-opacity-50 bg-transparent outline-none focus:ring-0 focus:border-blue-200"
         />
+        
         <button
           type="submit"
           onClick={handleStackSubmit}
