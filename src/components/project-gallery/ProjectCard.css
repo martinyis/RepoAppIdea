@@ -64,7 +64,7 @@
   min-width: 100px;
   height: 25px;
   border-radius: 30px;
-  background-color: #0c134f;
+  /* background-color: #0c134f; */
   display: flex;
   align-items: center;
   justify-content: center;
