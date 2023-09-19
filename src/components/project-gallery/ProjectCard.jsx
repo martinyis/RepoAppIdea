@@ -5,11 +5,11 @@ import "./ProjectCard.css"; // Import the CSS file
 import { useState } from "react";
 import EditDelete from "./EditDelete";
 import LikeCount from "./LikeCount";
+const colorArray=['#d3aff9','#0b164d','#1c2a7a','#5b4999','#0b164d']
 const ProjectCard = (props) => {
   const { data } = props;
   const isMobile = useMediaQuery({ maxWidth: "365px" });
   const [isHovered, setIsHovered] = useState(false);
-
   const handleMouseEnter = () => {
     setIsHovered(true);
   };
@@ -73,8 +73,11 @@ const ProjectCard = (props) => {
         <div id="techStack" className="h-14 bg-gray-100 rounded-t-lg rounded-b-3xl overflow-hidden">
           <div className="scrollable-container overflow-x-auto py-2">
             <div className="scrollable-content whitespace-nowrap flex space-x-4">
-              {data.techStack.map((el) => (
-                <div className="tech-item bg-blue-500 text-white px-4 py-2 rounded-full text-sm">{el}</div>
+              {data.techStack.map((el,index) => (
+                <div className="tech-item bg-blue-500 text-white px-4 py-2 rounded-full text-sm"
+                 style={{ backgroundColor:`${colorArray[ index % colorArray.length]}` }}
+                >{el}
+                </div>
               ))}
             </div>
           </div>
