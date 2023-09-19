@@ -64,10 +64,11 @@
   min-width: 100px;
   height: 25px;
   border-radius: 30px;
-  background-color: #0c134f;
   display: flex;
   align-items: center;
   justify-content: center;
   color: white;
   transition: 0.6s;
 }
+
+
